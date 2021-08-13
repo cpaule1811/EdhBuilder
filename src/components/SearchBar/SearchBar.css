@@ -1,0 +1,84 @@
+.view-options  {
+    display: flex;
+    background-image: linear-gradient(326deg, #7818a4 20%, #5f0a87 80%);
+}
+
+.search-form-container { 
+    display: flex;
+    justify-content: center;
+}
+
+.search-form { 
+    width: 450px;
+    min-width: 320px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    background-color: white;
+}
+
+.search-input { 
+    width: 100%;
+    background: none;
+    border: none; 
+    outline: none;
+    flex-grow: 1;
+}
+
+.icon-container { 
+    padding: 8px 5px;;
+    outline: none;
+    display: flex;
+}
+
+.left { 
+    background-image: linear-gradient(326deg, #7818a4 20%, #5f0a87 80%);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.right { 
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+}
+
+.search-tab { 
+    text-transform: uppercase;
+    color: white;
+    margin: 4px;
+    font-size: 14px;
+}
+
+.active { 
+    background-color: rgba(255,255,255, 0.15);
+}
+
+.active div { 
+    display: block;
+}
+
+.searched-cards { 
+    padding: 15px 0 15px 0;
+    display: flex;
+    width:100%;
+    gap: 15px 2%;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+}
+
+.bottom-border-distance { 
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .search-form-container { 
+        display: flex;
+        justify-content: center;
+        padding-right: 0
+    }
+}
+
+

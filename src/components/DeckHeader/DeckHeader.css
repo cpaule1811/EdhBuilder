@@ -1,0 +1,84 @@
+
+.decklist-header  {
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    box-shadow: 2px 5px 10px 5px rgba(0,0,0,.4);
+    z-index: 800;
+    width: 100%;
+}
+
+.titles { 
+    align-self: center;
+    margin-left: 15px;
+}
+
+.deck-name { 
+    color: #5f0a87;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.header-commander { 
+    font-size: 18px;
+    margin-bottom: 5px
+}
+
+.colored-image-background { 
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    padding: 20px;
+    background-color: #5f0a87;
+    background-image: linear-gradient(326deg, #7818a4 20%, #5f0a87 80%);
+    width: 270px;
+    clip-path: polygon(0 0,100% 0, 90% 50%, 100% 100%, 0 100%);
+}
+
+.colored-image-background img {
+    z-index: 200; 
+    height: auto
+}
+
+.rating-star { 
+    margin-top: 5px;
+    display: flex;
+    gap:5px;
+}
+.rating-star div { 
+    padding-top:5px;
+}
+
+.rating-position { 
+    position: absolute;
+    right: 30px;
+}
+
+@media screen and (max-width: 800px) {
+ 
+    .decklist-header  {
+       text-align: center;
+       justify-content: center;
+       height: 250px
+    }
+
+    .rating-position  {
+        position: relative;
+        right: 0;
+        top: 40px;
+    }
+
+    .titles { 
+        margin: 0
+    }
+
+    .rating-star { 
+       justify-content: center;
+    }
+
+    .header-commander { 
+        margin: 0;
+    }
+    .colored-image-background { 
+        display: none;
+    }
+}

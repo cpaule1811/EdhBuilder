@@ -1,0 +1,38 @@
+.center { 
+     text-align: center;
+}
+
+.main-container { 
+     margin:0;
+     width:100%;
+}
+
+.layout { 
+     padding: 95px 0 0 250px;
+}
+
+.createform-bracket { 
+     height: 80px;
+}
+
+.invalid { 
+     margin-bottom: 5px;
+     font-size: 14px;
+     color: red;
+     z-index: 3000
+ }
+
+ .deckPagesTitle { 
+     margin:40px 0 30px 30px;;
+     color: #5f0a87;
+ }
+
+@media screen and (max-width: 800px) { 
+     .layout { 
+          padding-left: 0;
+     }
+     .createform-bracket { 
+          height: 0px;
+     
+     }
+}

@@ -1,0 +1,136 @@
+.display-card-container  {
+    display: flex;
+    width:250px;
+    height: 332px;
+}
+
+.ilegal img {
+    border-radius: 12px;
+    border: 3px solid rgb(234, 24, 24)
+} 
+
+.display-card-overlay { 
+        font-size: 1.2rem;
+        position: absolute;
+        width: 250px;
+        height:332px;
+        opacity: 0;
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 10px;
+}
+
+.display-card-image:hover, .display-card-overlay:hover,
+.display-card-image:hover ~ .display-card-overlay {
+    opacity: 1;
+    height: 332px;
+  }
+
+.display-card-container:hover {
+    height: 390px
+  } 
+
+  .overlay-functions { 
+    margin-top:320px;
+    height:0px;
+    opacity: 0;
+    padding:10px;
+    padding-top:15px;
+    background-color: rgba(0,0,0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    align-items: flex-end;
+}
+
+  .display-card-container:hover .overlay-functions {
+    height: 67px;
+    opacity: 1;
+  } 
+  
+
+  .overlay-functions span { 
+      text-align: center;
+      font-size: 15px;
+  }
+  .overlay-functions span:first-child { 
+     padding-left: 2px;;
+}
+
+  .input-wrapper { 
+    justify-self: flex-end;
+    display: flex
+  }
+
+  .price { 
+      text-align: center;
+      font-size: 15px;;
+  }
+
+  .sideboard { 
+      height: 35px;
+      width: 35px;
+      background-color: yellow;
+      border: none;
+      border-radius: 5px ;
+      margin-top: 5px;
+      margin-left: 5px;
+  }
+
+  .input-wrapper img { 
+      padding-top: 2px;
+  }
+
+  #left-space { 
+      width: 70px;
+  }
+
+#flip { 
+    position: absolute;
+    right:15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+  .overlay-functions img {
+    cursor: pointer;
+  }
+
+  #flip:active, .overlay-functions img:active { 
+      transform: scale(0.95);
+  }
+
+.quantity { 
+    text-align: center;
+    padding: 0;
+    margin: 5px 5px 0 0;
+    width: 30px;
+    height: 35px;
+    outline: none;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    border: 1px solid white;
+    font-size: 17px;
+}
+
+.quantity-number { 
+  z-index: 500;
+    position: absolute;
+    color: white;
+    margin-left: 200px;
+    margin-top: 275px;
+    padding: 5px;
+    background-color: rgba(0,0,0, 0.8);
+    border-radius: 5px;
+    font-weight: 900;
+    box-shadow: 1px 1px 5px 3px rgba(0,0,0, 0.6);
+    letter-spacing: 2px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
