@@ -9,7 +9,7 @@ function Dashboard() {
   const [leaderboard, setLeaderboard] = useState([])
 
   useEffect(() => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/")
+    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/leaderboard")
     .then(response => response.json())
     .then(leaderboardData => setLeaderboard(leaderboardData))
   }, [])
