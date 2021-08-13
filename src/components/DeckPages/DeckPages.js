@@ -13,7 +13,9 @@ function DeckPages({ source }) {
     const { userId } = useSelector((state) => state.loginStatus)
 
     useEffect(() => {
-        fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/decknum${source}/${userId}`)
+        const url = `https://edh-builder-api-m7vk6.ondigitalocean.app/decknum${source}/${userId}`
+        console.log(url)
+        fetch(url)
         .then(response => response.json())
         .then(data => { 
             setDeckNum(Number(data.count))
@@ -23,7 +25,8 @@ function DeckPages({ source }) {
 
     const handlePageChange = useCallback((val) => {
         setPageNo(val) 
-         fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/decks${source}/${val}/${userId}`)
+        const url = `https://edh-builder-api-m7vk6.ondigitalocean.app/decks${source}/${val}/${userId}`
+         fetch(url)
          .then(response => response.json())
          .then(data => setDecks(data))
       }, [source, userId])
