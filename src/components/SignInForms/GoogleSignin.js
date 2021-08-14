@@ -39,7 +39,6 @@ function GoogleSignin() {
 
     return (
         <span>
-        {console.log(process.env.REACT_APP_GOOGLE)}
             <img onClick={signIn} src={google} alt="google sign in" width="28px"/>
         </span>
     );

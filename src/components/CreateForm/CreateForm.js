@@ -21,7 +21,7 @@ function CreateForm () {
     const dispatch = useDispatch()
 
     useEffect(() => { 
-        fetch(`http://localhost:3001/commanders`)
+        fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/commanders`)
         .then(response => response.json())
         .then(loadedCards => {
             setLoadedCards(loadedCards)
