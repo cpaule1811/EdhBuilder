@@ -26,7 +26,6 @@ function CreateForm () {
         fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/commanders`)
         .then(response => response.json())
         .then(loadedCards => {
-            console.log(loadedCards)
             if (loadedCards.length) { 
                 const comm = loadedCards.map(commander => {
                     return {value: commander.cardName, label: commander.cardName, keyword: commander.isPartner, text: commander.oracle_text}

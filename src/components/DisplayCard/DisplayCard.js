@@ -41,7 +41,7 @@ function DisplayCard({ card, view }) {
     const handleAddCard = () => { 
         console.log(deckDetails.deckID)
         const cardToAdd = Object.assign(card , { quantity: newQuantity, deckID: deckDetails.deckID })
-        fetch("http://localhost:3001/addcard", { 
+        fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/addcard", { 
             method: "POST",
             body: JSON.stringify(cardToAdd),
             headers: { 
@@ -63,7 +63,7 @@ function DisplayCard({ card, view }) {
     }
 
     const handleRemoveCard = () => { 
-        fetch("http://localhost:3001/removecard", { 
+        fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/removecard", { 
             method: "POST",
             body: JSON.stringify({ deckID: card.deckID, cardName: card.cardName }),
             headers: { 
@@ -84,7 +84,7 @@ function DisplayCard({ card, view }) {
     }
 
     const handleMove = (status) => {
-        fetch("http://localhost:3001/sideboard", { 
+        fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/sideboard", { 
             method: "PUT",
             body: JSON.stringify({ deckID: card.deckID, cardName: card.cardName, status: status }),
             headers: { 
@@ -100,7 +100,6 @@ function DisplayCard({ card, view }) {
                  dispatch(updateDecklist(appendedDecklist, sideboard.filter(item => !(item.cardName === card.cardName))))
             }
             else { 
-                console.log(card)
                  const appendedSideboard = sideboard
                  appendedSideboard.unshift(card)
                  dispatch(updateDecklist(decklist.filter(item => !(item.cardName === card.cardName)), appendedSideboard))

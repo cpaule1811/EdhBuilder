@@ -27,7 +27,7 @@ function DeckPages({ source }) {
         const url = `https://edh-builder-api-m7vk6.ondigitalocean.app/decks${source}/${val}/${userId}`
          fetch(url)
          .then(response => response.json())
-         .then(data => {console.log(data); setDecks(data)})
+         .then(data => {setDecks(data)})
       }, [source, userId])
     
       useEffect(() => {

@@ -7,7 +7,7 @@ function Contact() {
 
     const onSend = (e) => { 
         e.preventDefault()
-        fetch('http://localhost:3001/send', { 
+        fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/send', { 
             method: "POST",
             headers: { 
                 'content-Type': 'application/json'
