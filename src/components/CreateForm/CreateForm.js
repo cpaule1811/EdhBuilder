@@ -26,6 +26,7 @@ function CreateForm () {
         .then(loadedCards => {
             setLoadedCards(loadedCards)
         })
+        .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
