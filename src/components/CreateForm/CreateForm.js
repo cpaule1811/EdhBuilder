@@ -7,7 +7,9 @@ import './CreateForm.css';
 
 function CreateForm () {
     const { deckDetails } = useSelector(state => state.requestDecklist)
-    const [loadedCards, setLoadedCards] = useState([]);
+    const [partners, setPartners] = useState([])
+    const [commanders, setCommanders] = useState([])
+    const [singlePartner, setSinglePartner] = useState([])
     const [selectedOptionMain, setSelectedOptionMain] = useState({ label: deckDetails.commander, value: deckDetails.commander });
     const [selectedOptionPartner, setSelectedOptionPartner] = useState({ label: deckDetails.partner, value: deckDetails.partner });
     const [isPartner, setIsPartner] = useState(true);
@@ -24,10 +26,20 @@ function CreateForm () {
         fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/commanders`)
         .then(response => response.json())
         .then(loadedCards => {
-            setLoadedCards(loadedCards)
+            console.log(loadedCards)
+            if (loadedCards.length) { 
+                const comm = loadedCards.map(commander => {
+                    return {value: commander.cardName, label: commander.cardName, keyword: commander.isPartner, text: commander.oracle_text}
+                });
+                const part = loadedCards.filter(partner => partner.isPartner && !partner.oracle_text.includes("Partner with"))
+                .map(partner => {return {value: partner.cardName, label: partner.cardName}})
+                setCommanders(comm)
+                setPartners(part)
+                setSinglePartner([{value: isWithPartner, label: isWithPartner}])
+            }
         })
         .catch(error => console.log(error))
-    }, [])
+    }, [setCommanders, setPartners, setSinglePartner, isWithPartner])
 
     useEffect(() => {
         if(location.pathname === '/adddeck'){
@@ -117,13 +129,6 @@ function CreateForm () {
                     })}
                 />
     }
-    
-    const commanders = loadedCards.map(commander => {
-        return {value: commander.cardName, label: commander.cardName, keyword: commander.isPartner, text: commander.oracle_text}
-    });
-    const partners = loadedCards.filter(partner => partner.isPartner && !partner.oracle_text.includes("Partner with"))
-    .map(partner => {return {value: partner.cardName, label: partner.cardName}})
-    const singlePartner = [{value: isWithPartner, label: isWithPartner}]
 
         return ( 
         <>
