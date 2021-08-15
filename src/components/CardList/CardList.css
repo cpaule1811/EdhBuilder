@@ -96,8 +96,9 @@
     display: none; 
 }
 
-.card-text:hover ~ .delete-bin, .ilegal-card-text:hover ~ .delete-bin { 
+.card-text:hover .delete-bin, .ilegal-card-text:hover .delete-bin { 
     display: block;
+    padding-left: 5px;
 }
 
 @media screen and (max-width: 1000px) { 

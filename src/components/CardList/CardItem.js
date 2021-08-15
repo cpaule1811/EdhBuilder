@@ -61,7 +61,7 @@ function CardItem({ card }) {
         {message && <Message message={message.message} color={message.color}/>}
         <div data-tip data-for={card.cardName} className={!legality ? "card-text" : "ilegal-card-text"} >
              {card.quantity > 1 && card.quantity} {card.cardName}
-             <img onClick={() => handleRemoveCard} className={deckDetails.authorised && "delete-bin"} src={deleteBin} alt="delete magic the gathering card"/>
+             <img onClick={() => handleRemoveCard()} className={deckDetails.authorised && "delete-bin"} src={deleteBin} alt="delete magic the gathering card"/>
          </div>
                   
                   <ReactTooltip className="tooltip" id={card.cardName} place="left" effect="solid" delayShow={200} >

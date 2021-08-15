@@ -12,7 +12,7 @@ function CreateForm () {
     const [singlePartner, setSinglePartner] = useState([])
     const [selectedOptionMain, setSelectedOptionMain] = useState();
     const [selectedOptionPartner, setSelectedOptionPartner] = useState();
-    const [isPartner, setIsPartner] = useState(true);
+    const [isPartner, setIsPartner] = useState(false);
     const [isWithPartner, setIsWithPartner] = useState("");
     const [deckName, setDeckName] = useState("");
     const [deckDescription, setDeckDescription] = useState("");
@@ -44,9 +44,9 @@ function CreateForm () {
         if(location.pathname !== '/adddeck'){
             setSelectedOptionMain({ label: deckDetails.commander, value: deckDetails.commander });
             setDeckDescription(deckDetails.description);
-            setSelectedOptionPartner({ label: deckDetails.partner, value: deckDetails.partner });
             setDeckName(deckDetails.deckName)
-            if (!deckDetails.partner){ 
+            if (deckDetails.partner){ 
+                setSelectedOptionPartner({ label: deckDetails.partner, value: deckDetails.partner });
                 setIsPartner(true)
             }
         }
