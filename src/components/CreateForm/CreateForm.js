@@ -10,12 +10,12 @@ function CreateForm () {
     const [partners, setPartners] = useState([])
     const [commanders, setCommanders] = useState([])
     const [singlePartner, setSinglePartner] = useState([])
-    const [selectedOptionMain, setSelectedOptionMain] = useState({ label: deckDetails.commander, value: deckDetails.commander });
-    const [selectedOptionPartner, setSelectedOptionPartner] = useState({ label: deckDetails.partner, value: deckDetails.partner });
+    const [selectedOptionMain, setSelectedOptionMain] = useState();
+    const [selectedOptionPartner, setSelectedOptionPartner] = useState();
     const [isPartner, setIsPartner] = useState(true);
     const [isWithPartner, setIsWithPartner] = useState("");
-    const [deckName, setDeckName] = useState(deckDetails.deckName);
-    const [deckDescription, setDeckDescription] = useState(deckDetails.description);
+    const [deckName, setDeckName] = useState("");
+    const [deckDescription, setDeckDescription] = useState("");
     const [deckId, setDeckId] = useState(0);
     const [invalid, setInvalid] = useState();
     const { userId } = useSelector((state) => state.loginStatus)
@@ -41,20 +41,17 @@ function CreateForm () {
     }, [setCommanders, setPartners, setSinglePartner, isWithPartner])
 
     useEffect(() => {
-        if(location.pathname === '/adddeck'){
-            setSelectedOptionMain(null);
-            setDeckDescription("");
-            setSelectedOptionPartner(null);
-            setDeckName("")
-            setIsPartner(false)
+        if(location.pathname !== '/adddeck'){
+            setSelectedOptionMain({ label: deckDetails.commander, value: deckDetails.commander });
+            setDeckDescription(deckDetails.description);
+            setSelectedOptionPartner({ label: deckDetails.partner, value: deckDetails.partner });
+            setDeckName(deckDetails.deckName)
+            if (!deckDetails.partner){ 
+                setIsPartner(true)
+            }
         }
-    },[location, setDeckDescription, setDeckName, setIsPartner, setSelectedOptionMain, setSelectedOptionPartner])
+    },[location, setDeckDescription, setDeckName, setIsPartner, setSelectedOptionMain, setSelectedOptionPartner, deckDetails])
 
-    useEffect(() => {
-        if (!deckDetails.partner){ 
-            setIsPartner(false)
-        }
-    }, [setIsPartner, deckDetails])
 
     const createDeck = (e) => { 
         const fetchUrl = `https://edh-builder-api-m7vk6.ondigitalocean.app/${location.pathname !== "/adddeck" ? `editdeck/${deckDetails.deckID}` : "createdeck"}`

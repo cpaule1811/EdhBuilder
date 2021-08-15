@@ -86,6 +86,10 @@
 }
 
 @media screen and (max-width: 800px) {
+    .outer-create-container { 
+        padding: 20px;
+    }
+
     .new-deck-page { 
         margin-left: 0;
         padding-top: 120px;

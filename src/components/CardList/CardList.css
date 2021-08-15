@@ -92,6 +92,14 @@
     width: 200px;
 }
 
+.delete-bin { 
+    display: none; 
+}
+
+.card-text:hover ~ .delete-bin, .ilegal-card-text:hover ~ .delete-bin { 
+    display: block;
+}
+
 @media screen and (max-width: 1000px) { 
     .outer-cardlist-container { 
         margin-right: 0;
