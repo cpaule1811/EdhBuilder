@@ -15,7 +15,9 @@ function Dashboard() {
     .then(response => response.json())
     .then(leaderboardData => {
       setLoading(false)
-      setLeaderboard(leaderboardData)
+      if(leaderboardData[0].length) { 
+        setLeaderboard(leaderboardData)
+        }
     })
   }, [])
 
@@ -35,6 +37,7 @@ function Dashboard() {
         <div className="dashboard-page">
           <h1>Top Decks</h1> 
            <div className="dashboard-rankings-container">
+           {console.log(leaderboard)}
            {leaderboard.length ?
               <><Leaderboard rankings={leaderboard[0]}/>
               <Leaderboard rankings={leaderboard[1]}/></>
