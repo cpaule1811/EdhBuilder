@@ -7,7 +7,7 @@ import './Dashboard.css'
 
 function Dashboard() {
 
-  const [leaderboard, setLeaderboard] = useState([])
+  const [leaderboard, setLeaderboard] = useState([[],[]])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Dashboard() {
       setLoading(false)
       if(leaderboardData[0].length) { 
         setLeaderboard(leaderboardData)
-        }
+      }
     })
   }, [])
 
