@@ -39,7 +39,6 @@ function DisplayCard({ card, view }) {
     }, [deckDetails, card])
 
     const handleAddCard = () => { 
-        console.log(deckDetails.deckID)
         const cardToAdd = Object.assign(card , { quantity: newQuantity, deckID: deckDetails.deckID })
         fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/addcard", { 
             method: "POST",

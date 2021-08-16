@@ -40,7 +40,6 @@ export const requestUserGoogle = (res) => (dispatch) => {
     dispatch({ type: REQUEST_USER_PENDING })
     if (res){
         const token = res.tokenId;
-        console.log(token)
         fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/signin', { 
             method: "POST",
             headers: {
@@ -78,7 +77,7 @@ const fetchProfile = (dispatch, token, data) => {
             },
         })
         .then(response => response.json())
-        .then(user => { console.log(user); dispatch({ type: REQUEST_USER_SUCCESS, payload: user })})
+        .then(user => { dispatch({ type: REQUEST_USER_SUCCESS, payload: user })})
         .catch(err => dispatch({ type: REQUEST_USER_FAILURE, payload: { error: err }}))
     }
 }

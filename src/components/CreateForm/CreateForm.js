@@ -37,7 +37,7 @@ function CreateForm () {
                 setSinglePartner([{value: isWithPartner, label: isWithPartner}])
             }
         })
-        .catch(error => console.log(error))
+        .catch()
     }, [setCommanders, setPartners, setSinglePartner, isWithPartner])
 
     useEffect(() => {

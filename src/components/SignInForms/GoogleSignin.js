@@ -15,12 +15,8 @@ function GoogleSignin() {
         signOut()
     }
 
-    const onLogoutSuccess= () => {
-        console.log("logout successful")
-    }
-
     const onFailure= (res) => { 
-        console.log('login failed: res:', res)
+        
     }
 
     const { signIn } = useGoogleLogin({
@@ -34,7 +30,6 @@ function GoogleSignin() {
     const { signOut } = useGoogleLogout({
         clientId,
         onFailure,
-        onLogoutSuccess
     })
 
     return (

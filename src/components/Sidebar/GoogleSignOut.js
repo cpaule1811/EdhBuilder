@@ -19,7 +19,6 @@ function GoogleSignOut() {
         .then(resp => resp.json())
         .then(success => { 
             if (success === 1) { 
-                console.log(success)
                 dispatch(signoutUser());
             }
         })
