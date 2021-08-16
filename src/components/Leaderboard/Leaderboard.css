@@ -70,7 +70,7 @@
     align-self: center;
     transform: scaleY(.97);
     width: 370px;
-    height: 98%;
+    height: 100%;
     box-shadow: 2px 5px 10px 2px rgba(0,0,0,0.4);
 }
 
@@ -84,6 +84,7 @@
 
 .deck-details { 
     word-wrap: break-word;
+    height: 100%;
     width: 100%;
     padding-left: 25px;
     padding-right: 2px;

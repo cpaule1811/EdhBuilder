@@ -21,7 +21,7 @@ function Leaderboard({ rankings }) {
                   <Link to={`/decklist/${rankings[0].deckID}`}><button className="decklist-button" id="signUp">Decklist</button></Link>
             </div> 
             <div className="leaderboard-tabs">
-                 {rankings.slice(1,5).map((item, i) => { 
+                 {rankings.concat([0,0,0,0]).slice(1,5).map((item, i) => { 
                   return <div key={i} className="leaderboard-tab">
                       <Link to = {`/decklist/${item.deckID}`}><div className="deck-details">
                         <div className="deck">{item.deckName}</div>
