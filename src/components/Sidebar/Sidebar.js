@@ -54,8 +54,8 @@ function Sidebar() {
                        <span>DashBoard</span>
                      </div>
                 </Link>
-                <Link to="/profile">
-                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/profile" ? "active-tab" : "tab"}>
+                <Link to="/yourdecks">
+                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/yourdecks" ? "active-tab" : "tab"}>
                        <img src={deck} alt="icon" width="25px" height="25px"></img>
                        <span>Your Decks</span>
                      </div>

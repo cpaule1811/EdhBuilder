@@ -25,7 +25,8 @@ function Dashboard() {
          <div className="welcome-overlay">
           <div className="welcome-content">
             <h1>Welcome to EDH Builder</h1>
-            <h2>The Unofficial deckbuilding site for Magic The Gathering</h2>
+            <h2>An Unofficial commander deckbuilding site for Magic the Gathering</h2>
+            <h6>EDH Builder is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</h6>
             <Link to="/adddeck"><button className="build">BUILD</button></Link>
           </div>
          </div>

@@ -28,7 +28,7 @@ function CreateForm () {
         .then(loadedCards => {
             if (loadedCards.length) { 
                 const comm = loadedCards.map(commander => {
-                    return {value: commander.cardName, label: commander.cardName, keyword: commander.isPartner, text: commander.oracle_text}
+                    return {value: commander.cardName, label: commander.cardName, isPartner: commander.isPartner, text: commander.oracle_text}
                 });
                 const part = loadedCards.filter(partner => partner.isPartner && !partner.oracle_text.includes("Partner with"))
                 .map(partner => {return {value: partner.cardName, label: partner.cardName}})
@@ -86,7 +86,7 @@ function CreateForm () {
             setIsPartner(true);
             setIsWithPartner("")
             if (selectedOption.text.includes(`Partner with`))  
-                setIsWithPartner(selectedOption.oracle_text.substring(13, selectedOption.oracle_text.indexOf(" (")))     
+                setIsWithPartner(selectedOption.text.substring(13, selectedOption.text.indexOf(" (")))     
         } else { 
             setIsPartner(false)
             setSelectedOptionPartner(null)

@@ -9,6 +9,10 @@
     border: 3px solid rgb(234, 24, 24)
 } 
 
+.display-card-image img { 
+   border-radius: 12px;
+}
+
 .display-card-overlay { 
         font-size: 1.2rem;
         position: absolute;

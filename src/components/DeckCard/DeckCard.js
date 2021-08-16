@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom'
 
 function DeckCard(props) {
   const { deckID, cardArt, deckName, partner, username, avgRating, commander } = props;
+  const artist = "beau"
     return (
         <Link to={`decklist/${deckID}`}>
         <div className="a-box">
-            <img id="commander-art" src={cardArt} alt="commander" />
+            <img id="commander-art" src={cardArt} alt="commander" title={`Artist: ${artist}`} />
             <div className="deck-info-container">
               <div className="inner-diagnal"></div>
               <h3>{deckName}</h3>

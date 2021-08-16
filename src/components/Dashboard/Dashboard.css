@@ -18,10 +18,10 @@
 
 .welcome-content { 
     padding: 10px;
-    padding-top: 40px;
+    padding-top: 30px;
+    padding-left: 30px;
     z-index: 200;
     text-align: center;
-    transform: translate(-30px);
 }
 
 .welcome-content h1 { 
@@ -61,6 +61,19 @@
     color: #5f0a87;
 }
 
+h6 { 
+    margin: 10px 0 10px 0;
+    color: white;
+    font-weight: 300
+}
+
+
+@media screen and (max-width: 1000px) {
+    .welcome-content { 
+        padding: 10px
+    }
+}
+
 @media screen and (max-width: 800px) {
     .welcome-content { 
         transform: translate(0);
@@ -71,9 +84,21 @@
 
 @media screen and (max-width: 425px) {
     .welcome,  .welcome-overlay{
-        height: 320px;
+        height: 330px;
         width: 100vw;
     } 
+
+    .welcome-content h2 { 
+        margin: 5px 0 5px 0;
+    }
+
+    .welcome-content h2 { 
+        margin: 2px 0 2px 0;
+    }
+
+    .build { 
+        margin: 0;
+    }
 
     .dashboard-page { 
         padding:0;

@@ -5,9 +5,10 @@ import star from '../../icons/full_star.svg'
 import Rating from 'react-rating'
 import fullStar from '../../icons/full_star.svg'
 import emptyStar from '../../icons/empty_star.svg'
+import { Helmet } from "react-helmet";
 
 function DeckHeader() {
-  const { deckID, commander, cardArt, deckName, partner, username, avgRating, userRating } = useSelector((state) => state.requestDecklist.deckDetails)
+  const { deckID, commander, cardArt, deckName, partner, username, avgRating, userRating, description } = useSelector((state) => state.requestDecklist.deckDetails)
   const { userId } = useSelector((state) => state.loginStatus);
 
   const handleRating = (e) => { 
@@ -24,6 +25,10 @@ function DeckHeader() {
 
     return (
         <div className="decklist-header">
+        <Helmet>
+               <title>{deckName} - EDH Builder</title>
+               <meta name="description" content={description}/>
+            </Helmet>
        <div className="colored-image-background">
         <img src={cardArt} alt="commander art" width= "200px"/>
       </div>
