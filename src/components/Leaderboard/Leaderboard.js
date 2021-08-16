@@ -8,7 +8,7 @@ function Leaderboard({ rankings }) {
             <div className= "first-tab">
                <h1>Top 5</h1>
                <h2>Highest Ranked Decks</h2>
-               <img src={rankings[0].cardArt} alt="best magic the gathering cardArt" />
+               <img src={rankings[0].cardArt} alt="best magic the gathering cardArt" title={rankings[0].artist}/>
                         <div className="white-background">
                 <div className="deck-details first">
                         <div className="deck">{rankings[0].deckName}</div>

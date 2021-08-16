@@ -4,8 +4,7 @@ import star from  '../../icons/star.svg'
 import { Link } from 'react-router-dom'
 
 function DeckCard(props) {
-  const { deckID, cardArt, deckName, partner, username, avgRating, commander } = props;
-  const artist = "beau"
+  const { deckID, cardArt, deckName, partner, username, avgRating, commander, artist } = props;
     return (
         <Link to={`decklist/${deckID}`}>
         <div className="a-box">
