@@ -38,11 +38,8 @@ function Dashboard() {
           <h1>Top Decks</h1> 
            <div className="dashboard-rankings-container">
            {console.log(leaderboard)}
-           {leaderboard.length ?
-              <><Leaderboard rankings={leaderboard[0]}/>
-              <Leaderboard rankings={leaderboard[1]}/></>
-              : null
-           }
+           {leaderboard[0].length ? <Leaderboard rankings={leaderboard[0]}/> : null}
+           {leaderboard[1].length ? <Leaderboard rankings={leaderboard[1]}/> : null}
            </div>
         <h1>Most Recent Decks</h1>
             <DeckPages source="pub"/>
