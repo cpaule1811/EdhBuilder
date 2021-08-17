@@ -6,7 +6,8 @@ function AddCards() {
     const [setId, setSetId] = useState()
     const [success, setSuccess] = useState()
 
-    const fetchNewSet = () => {
+    const fetchNewSet = (e) => {
+        e.preventDefault();
         fetch(`https://api.scryfall.com/cards/search?order=set&q=e%3A${setId}&unique=prints`)
         .then(data => data.json())
         .then(resp => {
