@@ -9,8 +9,10 @@ function ForgotPassword() {
 
     const handleForm = (e) => {
         e.preventDefault()
+        console.log(emailField)
           fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/forgotpassword', {
               method: 'POST',
+              headers: {'content-Type': 'application/json'},
               body: JSON.stringify({  
                     email: emailField,
                 })
