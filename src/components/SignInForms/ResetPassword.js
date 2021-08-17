@@ -16,7 +16,10 @@ function ResetPassword() {
         if (passwordField === conPasswordField) {
           fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/resetpassword', {
               method: 'PUT',
-              authorization: resetid,
+              headers: {
+                'content-Type': 'application/json',
+                'Authorization': resetid
+            },
               body: JSON.stringify({  
                     password: passwordField,
                 })
@@ -47,13 +50,13 @@ function ResetPassword() {
 			    onChange={(e) => setPasswordField(e.target.value)} 
 				value={passwordField} 
 				type="password" 
-				placeholder="Email"
+				placeholder="New Password"
 			/>
             <input 
 			    onChange={(e) => setConPasswordField(e.target.value)} 
 				value={conPasswordField} 
 				type="password" 
-				placeholder="Email"
+				placeholder="Confirm password"
 			/>
             <p style={{margin: '10px 0 10px 0', color: 'red'}}>{changed}</p>
             <button onClick={(e) => handleForm(e)} className="signin-button">SUBMIT</button>
