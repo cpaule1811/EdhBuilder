@@ -86,7 +86,8 @@ function EditProfile() {
 				</div>
 			</div>
         </div>
-            <button onClick={(e) => handleForm(e)} className="signin-button">SUBMIT</button>
+            <input type="submit" onClick={(e) => handleForm(e)} className="signin-button"/>
+			
 		</form>
 	</div>
 	</div>

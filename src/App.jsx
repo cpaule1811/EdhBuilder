@@ -10,6 +10,7 @@ import ForgotPassword from './components/SignInForms/ForgotPassword'
 import ResetPassword from './components/SignInForms/ResetPassword'
 import Logo from './components/Logo/Logo'
 import Dashboard from './components/Dashboard/Dashboard'
+import AddCards from './components/SignInForms/AddCards'
 import HowTo from './components/HowTo/HowTo'
 import EditProfile from './components/SignInForms/EditProfile'
 import Contact from './components/Contact/Contact'
@@ -104,6 +105,9 @@ useEffect(() => {
           </Route>
           <Route path="/forgotpassword/:resetid">
              <ResetPassword/>
+          </Route>
+          <Route path="/adminaddentrys">
+             <AddCards/>
           </Route>
           <Route path="/">
              <Dashboard/>

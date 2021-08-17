@@ -82,7 +82,7 @@ function Signin() {
             />
 			{error && errorRegister && <div className="invalid">{error}</div> }
 			<Link to="/forgotyourpassword"><span className="forgot">Forgot your password?</span></Link>
-			<button onClick={(e) => handleSignIn(e)} className="signin-button">Sign In</button>
+			<input type="submit" onClick={(e) => handleSignIn(e)} className="signin-button" value="sign in"/>
 			<button onClick= {(e) => {e.preventDefault(); toggleSignInRegister(true)}} className="mobile-signin-button" hidden>Sign Up</button>
 		</form>
 	</div>
@@ -126,7 +126,7 @@ function Signin() {
 				placeholder="Password" 
 			/>
 			{error && !errorRegister && <div className="invalid">{error}</div> }
-			<button onClick={(e) => handleSignUp(e)} className="signin-button">Sign Up</button>
+			<input type="submit" onClick={(e) => handleSignUp(e)} className="signin-button" value="sign up"/>
 			<button onClick= {() => toggleSignInRegister(true)} className="mobile-signin-button" hidden>Sign In</button>
 		</form>
 	</div>

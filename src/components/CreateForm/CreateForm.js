@@ -141,7 +141,7 @@ function CreateForm () {
             {invalid && <div className="invalid">Please make sure a commander is selected and you have chosen a name for your deck.</div>}
             <input 
                  onClick={(e) => createDeck(e)} 
-                 type="button" 
+                 type="submit" 
                  id="new-deck-button" 
                  value={location.pathname === '/adddeck' ? "build" : "edit"}
             />

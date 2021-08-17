@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Signin.css';
 import { useParams, Redirect } from 'react-router-dom'
 
@@ -10,6 +10,11 @@ function ResetPassword() {
     const [changed, setChanged] = useState("")
     const { resetid } = useParams()
     const [success, setSuccess] = useState(false)
+    const [invalid, setInvalid] = useState(false)
+
+    useEffect(() => {
+        fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/checkresetvalid')
+    })
 
     const handleForm = (e) => {
         e.preventDefault()
@@ -41,7 +46,7 @@ function ResetPassword() {
 
     return (
         <div className="background">
-        {success && <Redirect to='/signin'/>}
+        {success || invalid && <Redirect to='/signin'/>}
         <div className=" username-container">
 		<form>
             <h1>What is your account's email?</h1>
