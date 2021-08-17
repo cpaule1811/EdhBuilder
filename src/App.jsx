@@ -6,6 +6,8 @@ import Sidebar from './components/Sidebar/Sidebar.js'
 import DeckPages from './components/DeckPages/DeckPages'
 import DeckEditor from './components/DeckEditor/DeckEditor'
 import CreateForm from './components/CreateForm/CreateForm'
+import ForgotPassword from './components/SignInForms/ForgotPassword'
+import ResetPassword from './components/SignInForms/ResetPassword'
 import Logo from './components/Logo/Logo'
 import Dashboard from './components/Dashboard/Dashboard'
 import HowTo from './components/HowTo/HowTo'
@@ -96,6 +98,12 @@ useEffect(() => {
                   <meta name="description" content="Contact us if you have any inquries about the application"/>
                </Helmet>
              <Contact/>
+          </Route>
+          <Route path="/forgotyourpassword">
+             <ForgotPassword/>
+          </Route>
+          <Route path="/forgotyourpassword/:resetid">
+             <ResetPassword/>
           </Route>
           <Route path="/">
              <Dashboard/>

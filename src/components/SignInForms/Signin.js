@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GoogleSignin from './GoogleSignin';
 import { requestUser, registerUser } from '../../actions';
+import { Link } from 'react-router-dom'
 import './Signin.css';
 
 function Signin() {
@@ -80,7 +81,7 @@ function Signin() {
 				placeholder="Password" 
             />
 			{error && errorRegister && <div className="invalid">{error}</div> }
-			<span className="forgot">Forgot your password?</span>
+			<Link to="/forgotyourpassword"><span className="forgot">Forgot your password?</span></Link>
 			<button onClick={(e) => handleSignIn(e)} className="signin-button">Sign In</button>
 			<button onClick= {(e) => {e.preventDefault(); toggleSignInRegister(true)}} className="mobile-signin-button" hidden>Sign Up</button>
 		</form>

@@ -23,11 +23,16 @@ function EditorSidebar() {
       return prices.reduce((a, b) => a + b, 0).toFixed(2)
     }
 
+    const totalQuantity = () => { 
+      let initialValue = partner ? 2 : 1;
+     return decklist.reduce((acc, cur) => acc + cur.quantity, initialValue)
+   }
+
     return (
         <>
         {!isPending && 
         <div className={`editor-sidebar-container`}>
-          <div className="deck-type">{partner ? "Partners" : "Commander"}</div>
+          <div className="deck-type">{partner ? "Partners" : "Commander"} ({totalQuantity()})</div>
           <img 
             className={`commander-image ${partner && "offset"}`}
              onMouseEnter={() => partner && toggleImageSwitch(false)}

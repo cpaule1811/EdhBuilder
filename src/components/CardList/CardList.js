@@ -13,8 +13,8 @@ function CardList() {
        Lands: filterCards("Land", "nothing"),
        Creatures: filterCards("Creature", "nothing"),
        Planeswalker: filterCards("Planeswalker", "nothing"),
-       Instants: filterCards("Instant", "nothing"),
-       Sorceries: filterCards("Sorcery", "nothing"),
+       Instants: filterCards("Instant", "Creature"),
+       Sorceries: filterCards("Sorcery", "Creature"),
        Enchantments: filterCards("Enchantment", "Creature"),
        Artifacts: filterCards('Artifact', "Creature")
       }).sort((fir,sec) => fir[1].length - sec[1].length)
@@ -56,16 +56,16 @@ function CardList() {
      <> <div className="outer-cardlist-container">
         <div className="card-list-container">
          <div className="column">
-            {columns(cardList().splice(0,4))}
+            {columns(cardList().splice(0,1).concat(cardList().splice(6,1)))}
          </div>
          <div className="column">
-             {columns(cardList().splice(4,2))}
+             {columns(cardList().splice(5,1).concat(cardList().splice(1,1)))}
          </div>
          <div className="column">
-              {columns(cardList().splice(6))}
+              {columns(cardList().splice(3,2))}
          </div>
          <div className="column">
-            {columns(sideBoard())}
+            {columns(cardList().splice(2,1).concat(sideBoard()))}
          </div>
            {}
         </div>
