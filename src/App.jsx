@@ -102,7 +102,7 @@ useEffect(() => {
           <Route path="/forgotyourpassword">
              <ForgotPassword/>
           </Route>
-          <Route path="/forgotyourpassword/:resetid">
+          <Route path="/forgotpassword/:resetid">
              <ResetPassword/>
           </Route>
           <Route path="/">
