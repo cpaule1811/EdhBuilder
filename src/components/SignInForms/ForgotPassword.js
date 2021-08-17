@@ -30,7 +30,7 @@ function ForgotPassword() {
             <input 
 			    onChange={(e) => setEmailField(e.target.value)} 
 				value={emailField} 
-				type="text" 
+				type="email" 
 				placeholder="Email"
 			/>
             <p style={{margin: '10px 0 10px 0', color: 'red'}}>{confirmed}</p>
