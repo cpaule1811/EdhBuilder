@@ -45,13 +45,13 @@ function Sidebar() {
                     </div>
                 </Link>
                }
-               {userID === process.env.ADMIN && 
-                <Link to="/adminaddentrys">
+               {userID === process.env.ADMIN &&
+                {/* <Link to="/adminaddentrys">
                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/adminaddentry" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
                         <img src={add} alt="icon" width="25px" height="25px"/>
                         <span>New Set</span>
                     </div>
-                </Link>
+                </Link> */}
                }
                </div> 
             </div>

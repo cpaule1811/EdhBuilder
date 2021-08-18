@@ -1,10 +1,32 @@
 import React, { useState } from 'react';
+import {useDropzone} from 'react-dropzone';
 import './Signin.css'
+import json from '../../icons/json.svg'
+import upload from '../../icons/upload.svg'
 
 function AddCards() {
 
     const [setId, setSetId] = useState("")
     const [success, setSuccess] = useState("")
+    const [jsonFile, setJsonFile] =useState("")
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({ 
+        noClick: jsonFile ? true : false,
+        accept: '.json',
+        maxFiles:1, 
+        onDrop: files => { console.log(files); setJsonFile(files[0]) }
+    })
+
+    const sendJsonFile = (e) => {
+        e.preventDefault()
+        const fd = new FormData()
+        fd.append('file', jsonFile)
+        console.log(jsonFile)
+        fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/jsonentrys', { 
+            method: 'POST',
+            body: fd
+        })
+    }
 
     const fetchNewSet = (e) => {
         e.preventDefault();
@@ -16,7 +38,7 @@ function AddCards() {
                 return { 
                    cardName: item.name, 
                    type: item.type_line, 
-                   price: item.prices.usd,
+                   price: Number(item.prices.usd) < 0.50 ? 0.50.toFixed(2) : Number(item.prices.usd) * 1.65.toFixed(2),
                    cmc: item.cmc,
                    modal: item.layout,
                    imageUrl: item.layout === "transform" || item.layout === "modal_dfc" ? 
@@ -42,7 +64,7 @@ function AddCards() {
                         'content-Type': 'application/json',
                         'Authorization': token
                  },
-                 body: JSON.stringify(cardsToAdd)
+                 body: JSON.stringify({ cardsToAdd: cardsToAdd })
              })
              .then(resp => { 
                  if (resp === "success") { 
@@ -61,9 +83,27 @@ function AddCards() {
 			    onChange={(e) => setSetId(e.target.value)} 
 				value={setId} 
 				type="text" 
-				placeholder="Username"
+				placeholder="Set Code"
 			/>
             <input type="submit" onClick={(e) => fetchNewSet(e)} className="signin-button"/>
+            <p style={{margin: "5px"}}>{success && "entrys successfully updated"}</p>
+		</form>
+        <form>
+            <h1>Update Entrys</h1>
+            <div {...getRootProps()}>
+			  <div className={`drop-area ${isDragActive && 'drag-active'}`}>
+				<input onChange {...getInputProps()} />
+				{ 
+				  jsonFile ? <div className="uploaded-file">
+				  <img src={json} alt="profile"/>
+				     <div>{jsonFile.name}</div>
+				     <button onClick={() => setJsonFile("")} className="clear">x</button>
+				  </div> :
+				  <><img src={upload} alt="upload-icon"/><p>Drag 'n' drop .json file here, or click to select files</p></>
+				}
+				</div>
+			</div>
+            <input type="submit" onClick = {(e) => sendJsonFile(e)} className="signin-button"/>
             <p style={{margin: "5px"}}>{success && "entrys successfully updated"}</p>
 		</form>
 	  </div>

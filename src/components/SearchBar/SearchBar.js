@@ -35,6 +35,7 @@ function SearchBar({ url }) {
     return (  
        <>
        <div className="search-form-container">
+       {console.log(loadedCards)}
         <div className="search-form">
          <div className="icon-container left"><img src={search} alt="icon" width="25px" height="25px"/></div>
         <input onChange={(e) => fetchSearchedCards(e.target.value)} className="search-input" type="search" placeholder="search"/>
