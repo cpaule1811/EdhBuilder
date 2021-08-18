@@ -38,13 +38,11 @@ function AddCards() {
              const token = window.localStorage.getItem('token')
              fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/updateentries', { 
                  method: 'POST',
-                 header: { 
-                     headers: {
+                 headers: {
                         'content-Type': 'application/json',
                         'Authorization': token
-                    },
-                    body: JSON.stringify(cardsToAdd)
-                 }
+                 },
+                 body: JSON.stringify(cardsToAdd)
              })
              .then(resp => { 
                  if (resp === "success") { 
