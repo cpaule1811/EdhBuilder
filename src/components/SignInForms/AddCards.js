@@ -3,8 +3,8 @@ import './Signin.css'
 
 function AddCards() {
 
-    const [setId, setSetId] = useState()
-    const [success, setSuccess] = useState()
+    const [setId, setSetId] = useState("")
+    const [success, setSuccess] = useState("")
 
     const fetchNewSet = (e) => {
         e.preventDefault();
@@ -39,7 +39,6 @@ function AddCards() {
              fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/updateentries', { 
                  method: 'POST',
                  header: { 
-                     Authorization: localStorage,
                      headers: {
                         'content-Type': 'application/json',
                         'Authorization': token
