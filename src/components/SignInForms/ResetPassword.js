@@ -13,8 +13,19 @@ function ResetPassword() {
     const [invalid, setInvalid] = useState(false)
 
     useEffect(() => {
-        fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/checkresetvalid')
-    })
+        fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/checkresetvalid', { 
+            headers: {
+               'Content-Type': 'application/json',
+               'Authorization': resetid
+             }
+        })
+        .then(data => data.json())
+        .then(resp => {
+            if (resp !== "valid") { 
+                setInvalid(false)
+            }
+        })
+    }, [setInvalid, resetid])
 
     const handleForm = (e) => {
         e.preventDefault()
@@ -46,7 +57,7 @@ function ResetPassword() {
 
     return (
         <div className="background">
-        {success || invalid && <Redirect to='/signin'/>}
+        {(success || invalid) && <Redirect to='/signin'/>}
         <div className=" username-container">
 		<form>
             <h1>What is your account's email?</h1>

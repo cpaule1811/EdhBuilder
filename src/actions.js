@@ -116,7 +116,7 @@ export const requestUser = (signinValues) => (dispatch) => {
             fetchProfile(dispatch, user.token, user)
         }
         else { 
-            dispatch({ type: REQUEST_USER_FAILURE, payload: { error: user }})
+            dispatch({ type: REQUEST_USER_FAILURE, payload: { error: user, errorRegister: false }})
         }
     }).catch(err => dispatch({ type: REQUEST_USER_FAILURE, payload: { error: err, errorRegister: false }}))
 }

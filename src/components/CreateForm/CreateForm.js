@@ -17,7 +17,7 @@ function CreateForm () {
     const [deckName, setDeckName] = useState("");
     const [deckDescription, setDeckDescription] = useState("");
     const [deckId, setDeckId] = useState(0);
-    const [invalid, setInvalid] = useState();
+    const [invalid, setInvalid] = useState(false);
     const { userId } = useSelector((state) => state.loginStatus)
     const location = useLocation()
     const dispatch = useDispatch()

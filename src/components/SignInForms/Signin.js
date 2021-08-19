@@ -57,6 +57,7 @@ function Signin() {
 				type="password" 
 				placeholder="Password" 
 			/>
+			{error && !errorRegister && <div className="invalid">{error}</div> }
 			<button onClick={(e) => handleSignUp(e)} className="signin-button">Sign Up</button>
 			<button onClick= {(e) => {e.preventDefault(); toggleSignInRegister(false)}} className="mobile-signin-button" hidden>Sign In</button>
 		</form>
@@ -80,7 +81,7 @@ function Signin() {
 				type="password" 
 				placeholder="Password" 
             />
-			{error && errorRegister && <div className="invalid">{error}</div> }
+			{error && !errorRegister && <div className="invalid">{error}</div> }
 			<Link to="/forgotyourpassword"><span className="forgot">Forgot your password?</span></Link>
 			<input type="submit" onClick={(e) => handleSignIn(e)} className="signin-button" value="sign in"/>
 			<button onClick= {(e) => {e.preventDefault(); toggleSignInRegister(true)}} className="mobile-signin-button" hidden>Sign Up</button>
@@ -125,9 +126,9 @@ function Signin() {
 				type="password" 
 				placeholder="Password" 
 			/>
-			{error && !errorRegister && <div className="invalid">{error}</div> }
+			{error && errorRegister && <div className="invalid">{error}</div> }
 			<input type="submit" onClick={(e) => handleSignUp(e)} className="signin-button" value="sign up"/>
-			<button onClick= {() => toggleSignInRegister(true)} className="mobile-signin-button" hidden>Sign In</button>
+			<button onClick= {(e) => { e.preventDefault(); toggleSignInRegister(false) }} className="mobile-signin-button" hidden>Sign In</button>
 		</form>
 	</div>
 </div>

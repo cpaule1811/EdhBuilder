@@ -273,6 +273,12 @@ input, .message-box {
 
 	.mobile-signin-button { 
         display: block;
+		border: none;
+		background-color: white;
+		cursor: pointer;
+	}
+	.mobile-signin-button:hover { 
+        text-decoration: underline;
 	}
 	
 }

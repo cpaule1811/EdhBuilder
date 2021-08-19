@@ -71,6 +71,7 @@ export const loginStatus = (state=initialLoginStatus, action) => {
           ...state, 
           isSignedIn: false, 
           error: action.payload.error,
+          errorRegister: action.payload.errorRegister,
           isPendingLogin: false
          }
     case REQUEST_USER_SIGNOUT:
