@@ -37,8 +37,7 @@ function Sidebar() {
                         <span>Edit Profile</span>
                         </div>
                 </Link>
-                {console.log(userId, process.env.REACT_APP_ADMIN)}
-                {Number(userId) === Number(process.env.REACT_APP_ADMIN) ?
+                {userId === Number(process.env.REACT_APP_ADMIN) ?
                 <Link to="/adminaddentrys">
                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/adminaddentry" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
                         <img src={add} alt="icon" width="25px" height="25px"/>
