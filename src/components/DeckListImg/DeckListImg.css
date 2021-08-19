@@ -33,7 +33,3 @@ h5 {
     font-size: 13px;
     font-weight: 500;
 }
-
-.clear-filters:active { 
-    transform: scaleY(0.99)
-}
