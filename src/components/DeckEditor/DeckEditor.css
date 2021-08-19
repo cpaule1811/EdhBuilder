@@ -37,12 +37,6 @@
     background-color: purple;
 }
 
-.spinner { 
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-top: 15%;
-}
-
 @media screen and (max-width:800px) {
 
     .display-mobile-deck-card { 

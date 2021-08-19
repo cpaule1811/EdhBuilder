@@ -32,6 +32,12 @@
      color: #5f0a87;
  }
 
+ .spinner { 
+     margin-left: 50%;
+     transform: translateX(-50%);
+     margin-top: 15%;
+ }
+
 @media screen and (max-width: 800px) { 
      .layout { 
           padding-left: 0;
