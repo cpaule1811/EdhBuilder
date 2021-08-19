@@ -25,6 +25,7 @@
     height: 40px;
     border: none;
     color: white;
+    cursor: pointer;
   }
 
   .upload:active { 
