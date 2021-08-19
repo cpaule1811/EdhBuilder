@@ -22,7 +22,7 @@ function Recommended() {
    
     return (
             <div>
-            {loading ? <img src={loader} alt="loading recommended cards"/> :
+            {loading ? <img className="spinner" src={loader} alt="loading recommended cards"/> :
             (recommendedCards.length? 
             recommendedCards.map((item, i) => { 
                 if (item[1].length) {
