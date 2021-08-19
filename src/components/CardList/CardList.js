@@ -62,7 +62,7 @@ function CardList() {
              {columns(cardList().splice(5,1).concat(cardList().splice(1,1)))}
          </div>
          <div className="column">
-              {columns(cardList().splice(3,2))}
+              {columns(cardList().splice(3,2).reverse())}
          </div>
          <div className="column">
             {columns(cardList().splice(2,1).concat(sideBoard()))}

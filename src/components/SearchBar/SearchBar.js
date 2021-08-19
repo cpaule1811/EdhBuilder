@@ -10,6 +10,7 @@ import DisplayCard from '../DisplayCard/DisplayCard';
 
 function SearchBar({ url }) {
    const [loadedCards, setLoadedCards] = useState([]);
+   const [searchField, setSearchField] = useState('')
     const location = useLocation().pathname;
     const {deckId} = useParams()
 
@@ -21,6 +22,7 @@ function SearchBar({ url }) {
     }
 
     const fetchSearchedCards = (val) => {
+       setSearchField(val)
       fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/search?name=${val}`)
       .then(response => response.json())
       .then(searchedCards => {
@@ -35,10 +37,10 @@ function SearchBar({ url }) {
     return (  
        <>
        <div className="search-form-container">
-       {console.log(loadedCards)}
         <div className="search-form">
          <div className="icon-container left"><img src={search} alt="icon" width="25px" height="25px"/></div>
-        <input onChange={(e) => fetchSearchedCards(e.target.value)} className="search-input" type="search" placeholder="search"/>
+        <input onChange={(e) => fetchSearchedCards(e.target.value)} className="search-input" type="search" value={searchField} placeholder="search"/>
+        {searchField && <button onClick={() => { setSearchField(''); setLoadedCards([])} } className = "clear-search">X</button>}
            <div className="view-options right">
            <div className={active(`/decklist/${deckId}`)}>
               <div>

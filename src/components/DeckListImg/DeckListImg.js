@@ -26,6 +26,11 @@ function DeckListImg() {
     return board
    }
 
+   const clearFilters = () => {
+       setBoard("main")
+       setFilter({cmc: "all", type: "all"})
+   }
+
    const filteredDecklist = (board) => { 
         return filterType(filterCmc(board));
    }
@@ -42,11 +47,11 @@ function DeckListImg() {
             { decklist ? 
             <><div className="center">
             <h5>Filter By:</h5>
-            <select onChange={(e)=> {setFilter({...filter, cmc: "all"}); setBoard(e.target.value); }} className="filter-by">
+            <select onChange={(e)=> {setFilter({...filter, cmc: "all"}); setBoard(e.target.value); }} value={board} className="filter-by">
                    <option value="main">Main</option>
                    <option value="sideboard">Sideboard</option>
                </select>
-               <select onChange={(e)=> setFilter({...filter, type:e.target.value })} className="filter-by">
+               <select onChange={(e)=> setFilter({...filter, type:e.target.value })} value={filter.type} className="filter-by">
                    <option value={"all"}>Select Type</option>
                    <option value="Creature">Creature</option>
                    <option value="Instant">Instant</option>
@@ -56,10 +61,11 @@ function DeckListImg() {
                    <option value="Artifact">Artifact</option>
                    <option value="Land">Land</option>
                </select>
-               <select onChange={(e)=> setFilter({...filter, cmc: e.target.value })} className="filter-by" defaultValue="all">
+               <select onChange={(e)=> setFilter({...filter, cmc: e.target.value })} value={filter.cmc} className="filter-by" defaultValue="all">
                     <option value={"all"}>CMC</option>
                    { cmcOptions.map((item, i) => { return <option key={i} value={item}>{item}</option> }) }
                </select>
+               <button onClick={() => clearFilters()} className="clear-filters">CLEAR</button>
             </div>
             <CardGallery Cards={filteredDecklist(checkBoard())} view={null}/></> : 
             <div>Use the search bar to find cards to add</div> }

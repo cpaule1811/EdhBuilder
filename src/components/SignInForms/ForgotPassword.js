@@ -34,8 +34,7 @@ function ForgotPassword() {
 				type="email" 
 				placeholder="Email"
 			/>
-            <p style={{margin: '10px 0 10px 0', color: 'red'}}>{confirmed}</p>
-            <button onClick={(e) => handleForm(e)} className="signin-button">SUBMIT</button>
+            <p style={{margin: '10px 0 10px 0', color: confirmed.startsWith('Please check') ? 'green' : 'red'}}>{confirmed}</p>
             <input type="submit" onClick={(e) => handleForm(e)} className="signin-button" value="submit"/>
 		</form>
 	</div>

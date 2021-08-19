@@ -73,6 +73,16 @@
     padding: 10px 0;
 }
 
+.clear-search { 
+    height: 80%;
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    padding-right: 8px;
+    margin-top: 5px;
+}
+
 @media screen and (max-width: 1000px) {
     .search-form-container { 
         display: flex;

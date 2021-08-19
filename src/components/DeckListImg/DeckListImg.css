@@ -14,5 +14,26 @@ h5 {
     height: 30px;
     outline-color: purple ;
     margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 15px;
+}
+
+.clear-filters { 
+    display: block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    height: 35px;
+    padding: 0 10px; 
+    background-color: rgba(26, 24, 24, 0.951);
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.clear-filters:active { 
+    margin-top: 11px;
 }

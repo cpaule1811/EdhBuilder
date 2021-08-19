@@ -37,21 +37,21 @@ function Sidebar() {
                         <span>Edit Profile</span>
                         </div>
                 </Link>
-                <GoogleSignOut/></> :
+                {userID === process.env.ADMIN ?
+                <Link to="/adminaddentrys">
+                    <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/adminaddentry" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
+                        <img src={add} alt="icon" width="25px" height="25px"/>
+                        <span>New Set</span>
+                    </div>
+                </Link> : null}
+                <GoogleSignOut/>
+                </> :
                <Link to="/signin">
                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/signin" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
                         <img src={enter} alt="icon" width="25px" height="25px"/>
                         <span>Signin/register</span>
                     </div>
                 </Link>
-               }
-               {userID === process.env.ADMIN &&
-                {/* <Link to="/adminaddentrys">
-                    <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/adminaddentry" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
-                        <img src={add} alt="icon" width="25px" height="25px"/>
-                        <span>New Set</span>
-                    </div>
-                </Link> */}
                }
                </div> 
             </div>
