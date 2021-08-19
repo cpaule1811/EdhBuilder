@@ -30,6 +30,11 @@
     font-size: 21px;;
 }
 
+.month { 
+    font-size: 23px;
+    font-weight: 400;
+}
+
 .decklist-button {
     border-radius: 20px;
 	border: 1px solid white;

@@ -7,7 +7,7 @@ function Leaderboard({ rankings, time }) {
     return (
         <div className="leaderboard-container">
             <div className= "first-tab">
-               <h1>Top 5 ({time === "Monthly" && time})</h1>
+               <h1>Top 5 <span className="month">{time === "Monthly" && "(Past Month)"}</span></h1>
                <h2>Highest Ranked Decks</h2>
                <img src={rankings[0].cardArt} alt="best magic the gathering cardArt" title={rankings[0].artist}/>
                 <div className="white-background">
