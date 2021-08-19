@@ -28,12 +28,12 @@ h5 {
     padding: 0 10px; 
     background-color: rgba(26, 24, 24, 0.951);
     color: white;
-    border: 1px solid white;
+    border: none;
     cursor: pointer;
     font-size: 13px;
     font-weight: 500;
 }
 
 .clear-filters:active { 
-    margin-top: 11px;
+    margin-top: 3px;
 }

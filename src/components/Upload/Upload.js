@@ -37,7 +37,7 @@ function Upload() {
             })
           })
           .then(response => response.json())
-          .then(cards => { dispatch(requestDecklist(deckDetails.deckID, userID)) });
+          .then(() => { dispatch(requestDecklist(deckDetails.deckID, userID)) });
         };
         reader.readAsArrayBuffer(file);
       }
@@ -55,7 +55,7 @@ function Upload() {
                    <><img src={upload} alt="upload-icon"/><p>Drag 'n' drop .xlsx, xls file here, or click to select files</p></>
                    }
             </div>
-            {noFile && <div className="invalid">No file selected</div>}
+            {noFile && <div className="invalid invalid-pos">Please add file</div>}
             <button onClick={() => readFile()} className="upload">UPLOAD</button>
         </div>
     );

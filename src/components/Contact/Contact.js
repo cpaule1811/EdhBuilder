@@ -24,9 +24,11 @@ function Contact() {
         .then(data => {
             if(data !== "Message successfully sent!") { 
                 setError(data)
+                setSuccess("")
             }
             else  {
                 setSuccess(data)
+                setError("")
                 setContactValues({ name: "", email: "", subject: "", message: "" })
             }
         })
@@ -64,7 +66,7 @@ function Contact() {
             />
             {error && <div className="invalid">{error}</div>}
             {success && <div className="success">{success}</div>}
-			<input onClick={(e) => onSend(e)} className="signin-button" value="send"/>
+			<input onClick={(e) => onSend(e)} className="signin-button center" value="send"/>
 		</form>
 	</div>
 	<div className="overlay-container">
