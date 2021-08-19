@@ -16,7 +16,7 @@ function GoogleSignin() {
     }
 
     const onFailure= (res) => { 
-        
+        //induce error
     }
 
     const { signIn } = useGoogleLogin({
@@ -34,7 +34,7 @@ function GoogleSignin() {
 
     return (
         <span>
-            <img onClick={signIn} src={google} alt="google sign in" width="28px"/>
+            <img style={{cursor: "pointer"}}onClick={signIn} src={google} alt="google sign in" width="28px"/>
         </span>
     );
 }
