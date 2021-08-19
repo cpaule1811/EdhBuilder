@@ -54,6 +54,8 @@ function CreateForm () {
 
 
     const createDeck = (e) => { 
+        e.preventDefault()
+        console.log(selectedOptionMain, selectedOptionPartner)
         const fetchUrl = `https://edh-builder-api-m7vk6.ondigitalocean.app/${location.pathname !== "/adddeck" ? `editdeck/${deckDetails.deckID}` : "createdeck"}`
         fetch(fetchUrl , { 
             method: 'post',
