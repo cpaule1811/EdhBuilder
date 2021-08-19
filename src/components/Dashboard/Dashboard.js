@@ -37,8 +37,8 @@ function Dashboard() {
         <div className="dashboard-page">
           <h1>Top Decks</h1> 
            <div className="dashboard-rankings-container">
-           {leaderboard[0].length ? <Leaderboard rankings={leaderboard[0]}/> : null}
-           {leaderboard[1].length ? <Leaderboard rankings={leaderboard[1]}/> : null}
+           {leaderboard[0].length ? <Leaderboard rankings={leaderboard[0]} time="alltime"/> : null}
+           {leaderboard[1].length ? <Leaderboard rankings={leaderboard[1]} time="Monthly"/> : null}
            </div>
         <h1>Most Recent Decks</h1>
             <DeckPages source="pub"/>

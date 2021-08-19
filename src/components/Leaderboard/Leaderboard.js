@@ -3,11 +3,11 @@ import './Leaderboard.css'
 import { Link } from 'react-router-dom';
 import star from '../../icons/star.svg'
 
-function Leaderboard({ rankings }) {
+function Leaderboard({ rankings, time }) {
     return (
         <div className="leaderboard-container">
             <div className= "first-tab">
-               <h1>Top 5</h1>
+               <h1>Top 5 ({time === "Monthly" && time})</h1>
                <h2>Highest Ranked Decks</h2>
                <img src={rankings[0].cardArt} alt="best magic the gathering cardArt" title={rankings[0].artist}/>
                 <div className="white-background">
