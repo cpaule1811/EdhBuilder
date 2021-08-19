@@ -35,5 +35,5 @@ h5 {
 }
 
 .clear-filters:active { 
-    margin-top: 3px;
+    transform: scaleY(0.99)
 }

@@ -29,7 +29,7 @@
   }
 
   .upload:active { 
-    margin-top:3px;
+    transform: scaleY(0.99)
   }
 
   .uploaded-file { 
