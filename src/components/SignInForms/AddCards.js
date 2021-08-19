@@ -21,7 +21,6 @@ function AddCards() {
         e.preventDefault()
         const fd = new FormData()
         fd.append('file', jsonFile)
-        console.log(jsonFile)
         fetch('https://edh-builder-api-m7vk6.ondigitalocean.app/jsonentrys', { 
             method: 'POST',
             body: fd

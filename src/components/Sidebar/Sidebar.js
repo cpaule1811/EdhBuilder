@@ -20,7 +20,7 @@ function Sidebar() {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const dispatch = useDispatch();
     const menuStatus = useSelector((state) =>  state.menuStatus.menuStatus)
-    const { isSignedIn, username, profile, userID } = useSelector((state) =>  state.loginStatus)
+    const { isSignedIn, username, profile, userId } = useSelector((state) =>  state.loginStatus)
     return (
         <div className={`sidebar ${!menuStatus && "hide-menu"}`}>
         <div className="sidebar-background" style={{backgroundImage:`url(${backMenu})`, backgroundSize: 'cover'}}></div>
@@ -37,7 +37,7 @@ function Sidebar() {
                         <span>Edit Profile</span>
                         </div>
                 </Link>
-                {userID === process.env.ADMIN ?
+                {userId === process.env.ADMIN ?
                 <Link to="/adminaddentrys">
                     <div onClick={() => dispatch(setMenuStatus(!menuStatus))} className={location === "/adminaddentry" ? "active-tab tab-dropdown" : "tab tab-dropdown"}>
                         <img src={add} alt="icon" width="25px" height="25px"/>

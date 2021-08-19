@@ -37,7 +37,6 @@ function Dashboard() {
         <div className="dashboard-page">
           <h1>Top Decks</h1> 
            <div className="dashboard-rankings-container">
-           {console.log(leaderboard)}
            {leaderboard[0].length ? <Leaderboard rankings={leaderboard[0]}/> : null}
            {leaderboard[1].length ? <Leaderboard rankings={leaderboard[1]}/> : null}
            </div>

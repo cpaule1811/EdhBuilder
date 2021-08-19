@@ -22,7 +22,7 @@ function ResetPassword() {
         .then(data => data.json())
         .then(resp => {
             if (resp !== "valid") { 
-                setInvalid(false)
+                setInvalid(true)
             }
         })
     }, [setInvalid, resetid])
@@ -60,8 +60,7 @@ function ResetPassword() {
         {(success || invalid) && <Redirect to='/signin'/>}
         <div className=" username-container">
 		<form>
-            <h1>What is your account's email?</h1>
-            <p style={{margin: '10px 0 10px 0'}}>Enter your email and we will send you a password reset link.</p>
+            <h1 style={{marginBottom: '15px'}}>Reset Password</h1>
             <input 
 			    onChange={(e) => setPasswordField(e.target.value)} 
 				value={passwordField} 
@@ -75,7 +74,7 @@ function ResetPassword() {
 				placeholder="Confirm password"
 			/>
             <p style={{margin: '10px 0 10px 0', color: 'red'}}>{changed}</p>
-            <button onClick={(e) => handleForm(e)} className="signin-button">SUBMIT</button>
+            <input type="submit" onClick={(e) => handleForm(e)} value="submit" className="signin-button"/>
 		</form>
 	</div>
 	</div>
