@@ -139,7 +139,7 @@ function CreateForm () {
             {SelectFunc(commanders, handleChangeMain, selectedOptionMain)}
                 {(isPartner ? SelectFunc(isWithPartner.length ? singlePartner : partners, handleChangePartner, selectedOptionPartner) : null
             )}
-            <textarea onChange={(e) => setDeckDescription(e.target.value)} value={deckDescription}/>
+            <textarea onChange={(e) => setDeckDescription(e.target.value)} value={deckDescription} placeholder="Your deck in a few words..."/>
             {invalid && <div className="invalid">Please make sure a commander is selected and you have chosen a name for your deck.</div>}
             <input 
                  onClick={(e) => createDeck(e)} 

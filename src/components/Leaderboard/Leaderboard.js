@@ -19,7 +19,7 @@ function Leaderboard({ rankings }) {
                             <div>{rankings[0].username}</div>
                         </div>
                  </div>
-                  <div className="description-wrapper"><div className="description">{rankings[0].deckDescription.substring(0,100)}</div></div>
+                  <div className="description-wrapper"><div className="description">{`${rankings[0].deckDescription.substring(0,100)}...`}</div></div>
                   <Link to={`/decklist/${rankings[0].deckID}`}><button className="decklist-button" id="signUp">Decklist</button></Link>
             </div> 
             <div className="leaderboard-tabs">

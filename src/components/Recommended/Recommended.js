@@ -26,7 +26,7 @@ function Recommended() {
                 } 
                 return null
             })
-            : <div className="no-recommended">Looks like no one has built with this commander yet. <br/><br/>Go on be a trailblazer</div>}
+            : <div className="no-recommended">Looks like no one has built with this commander yet. <br/><br/>Go on be a trailblazer!</div>}
             </div> 
         );
 }

@@ -61,7 +61,7 @@ function DeckListImg() {
                    <option value="Artifact">Artifact</option>
                    <option value="Land">Land</option>
                </select>
-               <select onChange={(e)=> setFilter({...filter, cmc: e.target.value })} value={filter.cmc} className="filter-by" defaultValue="all">
+               <select onChange={(e)=> setFilter({...filter, cmc: e.target.value })} value={filter.cmc} className="filter-by">
                     <option value={"all"}>CMC</option>
                    { cmcOptions.map((item, i) => { return <option key={i} value={item}>{item}</option> }) }
                </select>
