@@ -27,6 +27,10 @@
     color: white;
   }
 
+  .upload:active { 
+    margin-top:3px;
+  }
+
   .uploaded-file { 
       margin-top: 20px;
       display: inline-block;

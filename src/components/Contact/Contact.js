@@ -4,6 +4,7 @@ import '../SignInForms/Signin.css'
 function Contact() {
     const [contactValues, setContactValues] = useState({ name: "", email: "", subject: "", message: "" })
     const [error, setError] = useState("")
+    const [success, setSuccess] =useState("")
 
     const onSend = (e) => { 
         e.preventDefault()
@@ -21,8 +22,12 @@ function Contact() {
         })
         .then(response => response.json())
         .then(data => {
-            if(data !== "success") { 
+            if(data !== "Message successfully sent!") { 
                 setError(data)
+            }
+            else  {
+                setSuccess(data)
+                setContactValues({ name: "", email: "", subject: "", message: "" })
             }
         })
     } 
@@ -58,7 +63,8 @@ function Contact() {
                 placeholder="Message"
             />
             {error && <div className="invalid">{error}</div>}
-			<button onClick={(e) => onSend(e)} className="signin-button">Send</button>
+            {success && <div className="success">{success}</div>}
+			<input onClick={(e) => onSend(e)} className="signin-button" value="send"/>
 		</form>
 	</div>
 	<div className="overlay-container">

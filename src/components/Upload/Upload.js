@@ -9,12 +9,16 @@ import excel from '../../icons/excel.svg'
 
 function Upload() {
     const [file, setFile] = useState("")
+    const [noFile, setNoFile] = useState(false)
     const {getRootProps, getInputProps, isDragActive} = useDropzone({noClick:file ? true : false,  accept: '.xlsx, xls', maxFiles:2, onDrop: files => setFile(files[0])})
     const dispatch = useDispatch()
     const { deckDetails } = useSelector((state) => state.requestDecklist)
     const { userID } = useSelector(state => state.loginStatus)
 
     const readFile = () => {
+        if (!file) {
+          return setNoFile(true)
+        }
         const reader = new FileReader();
         reader.onload = function(e) {
           var data = new Uint8Array(e.target.result);
@@ -51,6 +55,7 @@ function Upload() {
                    <><img src={upload} alt="upload-icon"/><p>Drag 'n' drop .xlsx, xls file here, or click to select files</p></>
                    }
             </div>
+            {noFile && <div className="invalid">No file selected</div>}
             <button onClick={() => readFile()} className="upload">UPLOAD</button>
         </div>
     );

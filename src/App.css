@@ -15,12 +15,17 @@
      height: 80px;
 }
 
-.invalid { 
+.invalid, .success { 
      margin-bottom: 5px;
      font-size: 14px;
      color: red;
      z-index: 3000
  }
+
+ .success { 
+      color: green;
+ }
+
 
  .deckPagesTitle { 
      margin:40px 0 30px 30px;;
