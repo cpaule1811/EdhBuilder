@@ -59,6 +59,7 @@ function DisplayCard({ card, view }) {
                 let appendedDecklist = decklist;
                 indexToFind >= 0 ? appendedDecklist[indexToFind].quantity = card.quantity : appendedDecklist.unshift(card)
                 dispatch(updateDecklist(appendedDecklist, sideboard))
+                setNewQuantity(1)
             } 
         })
     }
