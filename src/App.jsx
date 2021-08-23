@@ -39,7 +39,6 @@ useEffect(() => {
        <Helmet>
           <title>EDH Builder</title>
           <meta name="description" content="Build Magic the Gathering commander/EDH decks easily"/>
-          <meta name="keywords" content="build MTG commander decks, Magic the Gathering deck builder, commander deck suggestions"/>
        </Helmet>
       <div className="main-container">
       <Logo/>

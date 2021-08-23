@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import deleteBin from '../../icons/delete-bin.svg'
 import { updateDecklist } from '../../actions';
 import Message from '../Message/Message'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function CardItem({ card }) {
 
@@ -69,7 +70,8 @@ function CardItem({ card }) {
              />}
          </div> 
                   <ReactTooltip className="tooltip" id={card.cardName} place="left" effect="solid" delayShow={200} >
-                     <img className={`image-tooltip`} src={card.imageUrl} alt={card.cardName}/>
+                     {/* <img className={`image-tooltip`} src={card.imageUrl} alt={card.cardName}/> */}
+                     <LazyLoadImage className={`image-tooltip`} alt={card.cardName} height={"332"} src={card.imageUrl} width={"250"}/>
                      {card.imageUrl2 && <img className="image-tooltip" src={card.imageUrl2} alt={card.cardName}/>}
                      <div >{card.cardName}</div>
                      <div>{`$${card.price}`}</div>

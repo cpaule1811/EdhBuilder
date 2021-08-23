@@ -6,6 +6,8 @@ import plus from '../../icons/plus.svg'
 import flip from '../../icons/flip.png'
 import minus from '../../icons/minus.svg'
 import Message from '../Message/Message';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
 
 function DisplayCard({ card, view }) {
     const [url, setUrl] = useState(true)
@@ -122,7 +124,7 @@ function DisplayCard({ card, view }) {
         <div className="display-card-container">
         {message && <Message message={message.message} color={message.color}/>}
             <div className={`display-card-image ${legality && "ilegal"}`}>
-            <img src={url ? card.imageUrl : !card.imageUrl2 ? card.imageUrl : card.imageUrl2} alt="card" width="250px" height= "332px"></img>
+            <LazyLoadImage className={`image-tooltip`} alt={card.cardName} height={"332"} src={url ? card.imageUrl : !card.imageUrl2 ? card.imageUrl : card.imageUrl2} width={"250"}/>
             </div> 
             {card.quantity > 1 && view !== "add" && <div className="quantity-number">x{card.quantity}</div>}
             <div className="display-card-overlay">

@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
-import Upload from '../../components/Upload/Upload'
+import { useState, Suspense, lazy } from 'react'
 import CmcChart from '../Charts/CmcChart'
 import ProducedChart from '../Charts/ProducedChart'
 import './EditorSidebar.css'
+
+const Upload = lazy(() => import('../../components/Upload/Upload'))
 
 function EditorSidebar() {
    const { decklist, deckDetails, isPending } = useSelector((state) => state.requestDecklist)
@@ -44,7 +45,7 @@ function EditorSidebar() {
           <a target="_blank" rel="noreferrer" href={mtgMateUrl()}>
              <div className="mtg-mate">Purchase</div>
           </a></div>
-          {userID === userId && <Upload/>}
+          {userID === userId && <Suspense fallback={<>...</>}><Upload/></Suspense>}
           <CmcChart/>
           <ProducedChart/>
         </div>

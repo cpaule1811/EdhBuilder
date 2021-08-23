@@ -47,7 +47,9 @@ function DeckHeader() {
             onClick:(e) => handleRating(e),
             emptySymbol: <img src={emptyStar} alt="rate magic the gathering deck"></img>,
             fullSymbol: <img src={fullStar} alt="rate magic the gathering deck"></img>
-          }}/></div>
+          }}/>
+          
+              </div>
         </div>
       </div>
     );

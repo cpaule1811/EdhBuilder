@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import { useSelector } from 'react-redux'
-import HowTo from '../HowTo/HowTo';
 import CardItem from './CardItem';
-
 import './CardList.css'
+
+const HowTo = lazy(() => import('../HowTo/HowTo'))
 
 function CardList() {
    const { decklist, deckDetails, sideboard } = useSelector((state) => state.requestDecklist);
 
    const cardList = () => {
       return Object.entries({
-       Lands: filterCards("Land", "nothing"),
-       Creatures: filterCards("Creature", "nothing"),
-       Planeswalker: filterCards("Planeswalker", "nothing"),
+       Lands: filterCards("Land"),
+       Creatures: filterCards("Creature"),
+       Planeswalker: filterCards("Planeswalker"),
        Instants: filterCards("Instant", "Creature"),
        Sorceries: filterCards("Sorcery", "Creature"),
        Enchantments: filterCards("Enchantment", "Creature"),
@@ -20,7 +20,7 @@ function CardList() {
       }).sort((fir,sec) => fir[1].length - sec[1].length)
    }
 
-    const filterCards = (type, ignore) => { 
+    const filterCards = (type, ignore="nothing") => { 
          return decklist.filter(item => 
             item.modal.includes("transform") || item.modal.includes('modal_dfc') ? 
             item.type.substring(0, item.type.indexOf(' //')).includes(type) : 
@@ -75,7 +75,7 @@ function CardList() {
            <div>{deckDetails.description}</div>
         </div></>
       : 
-      <HowTo/>}
+      <Suspense fallback={<>...</>}><HowTo/></Suspense>}
         </>
        
     );

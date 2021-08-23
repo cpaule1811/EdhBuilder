@@ -2,13 +2,14 @@ import React from 'react';
 import './DeckCard.css'
 import star from  '../../icons/star.svg'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function DeckCard(props) {
   const { deckID, cardArt, deckName, partner, username, avgRating, commander, artist } = props;
     return (
         <Link to={`decklist/${deckID}`}>
         <div className="a-box">
-            <img id="commander-art" src={cardArt} alt="commander" title={`Artist: ${artist}`} />
+        <LazyLoadImage id="commander-art" src={cardArt} alt="commander" title={`Artist: ${artist}`} width={220} height={210}/>
             <div className="deck-info-container">
               <div className="inner-diagnal"></div>
               <h3>{deckName}</h3>

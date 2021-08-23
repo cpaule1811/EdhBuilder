@@ -36,8 +36,8 @@ function Upload() {
               data: uploadData
             })
           })
-          .then(response => response.json())
-          .then(() => { dispatch(requestDecklist(deckDetails.deckID, userID)) });
+          .then(data => data.json())
+          .then((resp) => { if(resp === 'success') dispatch(requestDecklist(deckDetails.deckID, userID)) });
         };
         reader.readAsArrayBuffer(file);
       }
