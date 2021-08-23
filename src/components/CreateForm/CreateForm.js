@@ -114,6 +114,7 @@ function CreateForm () {
                 placeholder="Select your commander"
                 onChange={handleChange}
                 filterOption={filterOption}
+                
                 theme={(theme) => ({
                     ...theme,
                     borderRadius: 0,

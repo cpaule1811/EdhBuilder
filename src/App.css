@@ -45,6 +45,11 @@
 	margin: 15px 0;
 }
 
+input {
+	margin: 8px 0;
+	padding: 12px 15px;
+}
+
 @media screen and (max-width: 800px) { 
      .layout { 
           padding-left: 0;
