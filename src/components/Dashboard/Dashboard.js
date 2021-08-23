@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Leaderboard from '../Leaderboard/Leaderboard'
 import DeckPages from '../DeckPages/DeckPages'
 import { Link } from 'react-router-dom'
-import spinner from '../../icons/spinner.svg'
+import Spinner from '../spinner/Spinner'
 import './Dashboard.css'
 
 function Dashboard() {
@@ -33,7 +33,7 @@ function Dashboard() {
           </div>
          </div>
         </div>
-        {loading ? <img className="spinner" src={spinner} alt="loading spinner"/> : 
+        {loading ? <Spinner/> : 
         <div className="dashboard-page">
           <h1>Top Decks</h1> 
            <div className="dashboard-rankings-container">

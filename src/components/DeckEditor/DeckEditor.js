@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import SearchBar from '../SearchBar/SearchBar';
 import './DeckEditor.css'
-import Recommended from '../Recommended/Recommended';
-import CardList from '../CardList/CardList'
 import { Switch, useRouteMatch, Route, useParams } from 'react-router-dom'
-import CreateForm from '../CreateForm/CreateForm';
 import DeckHeader from '../DeckHeader/DeckHeader';
-import DeckListImg from '../DeckListImg/DeckListImg';
-import EditorSidebar from '../EditorSidebar/EditorSidebar';
 import PublicDeck from '../PublicDeck/PublicDeck';
 import { requestDecklist } from '../../actions';
-import spinner from '../../icons/spinner.svg'
+import Spinner from '../spinner/Spinner';
+
+const CreateForm = lazy(() => import('../CreateForm/CreateForm'))
+const DeckListImg = lazy(() => import('../DeckListImg/DeckListImg'))
+const Recommended = lazy(() => import('../Recommended/Recommended'))
+const SearchBar = lazy(() => import('../SearchBar/SearchBar'))
+const EditorSidebar = lazy(() => import('../EditorSidebar/EditorSidebar'))
+const CardList = lazy(() => import('../CardList/CardList'))
 
 function DeckEditor() {
    
@@ -28,13 +29,15 @@ function DeckEditor() {
       }, [deckId, userId, dispatch])
 
     return (
-        isPending || isPendingLogin ? <img className="spinner" src={spinner} alt="loading spinner"/> : 
+        isPending || isPendingLogin ? <Spinner/> : 
         authorised ?
             <><div className="card-search-container">
             <DeckHeader/>
+                <Suspense fallback={<Spinner/>}>
                 <EditorSidebar/>
                 <div className= "editor-sidebar-bracket">
                 <SearchBar url={url}/>
+
                 <Switch>
                     <Route exact path={`/decklist/:${deckId}`}>
                        <CardList/>
@@ -50,6 +53,7 @@ function DeckEditor() {
                     </Route>
                 </Switch>
                 </div>
+                </Suspense>
             </div></>
             : (isMounted && <PublicDeck/>)
         );
