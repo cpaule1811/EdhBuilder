@@ -25,11 +25,11 @@ function Leaderboard({ rankings, time }) {
             <div className="leaderboard-tabs">
                  {rankings.concat([0,0,0,0]).slice(1,5).map((item, i) => { 
                   return <div key={i} className="leaderboard-tab">
-                      <Link to = {`/decklist/${item.deckID}`}><div className="deck-details">
-                        <div className="deck">{item.deckName}</div>
-                        <div className="commander">{item.commander}</div>
+                      <Link to={`/decklist/${item.deckID}`}><div className="deck-details">
+                        <div>{item.deckName}</div>
+                        <div>{item.commander}</div>
                         <div>{item.partner && `& ${item.partner}`}</div>
-                        <div className="user">{item.username}</div>
+                        <div>{item.username}</div>
                       </div></Link>
                       <div className="factor">{item.avgRating}</div>  
                   </div>

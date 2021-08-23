@@ -98,7 +98,7 @@
 
 .deck-details :first-child{ 
     font-size: 18px;
-    color: #5f0a87
+    color: #5f0a87;
 }
 
 .deck-details :nth-child(2), .deck-details :nth-child(3) { 
@@ -108,8 +108,9 @@
 .deck-details :last-child{ 
     font-size: 14px;
     font-weight: 400;
-    
+    color: black;
 }
+
 
 .factor { 
     width: 45px;

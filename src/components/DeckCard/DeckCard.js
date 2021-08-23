@@ -14,7 +14,7 @@ function DeckCard(props) {
               <h3>{deckName}</h3>
               <h4>{commander}</h4>
               {partner && <h4>{`& ${partner}`}</h4>}
-                <div className="user">{username}</div>
+                <div style={{color: "black"}}>{username}</div>
                 <div className="rating"><span id="rating">{avgRating}</span> <img src={star} alt="star rating" height='25px' width= '25px'/></div>
          </div>
        </div>

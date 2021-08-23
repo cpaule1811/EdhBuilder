@@ -4,6 +4,7 @@ import DeckPages from '../DeckPages/DeckPages'
 import { Link } from 'react-router-dom'
 import Spinner from '../spinner/Spinner'
 import './Dashboard.css'
+import './../Leaderboard/Leaderboard.css'
 
 function Dashboard() {
 

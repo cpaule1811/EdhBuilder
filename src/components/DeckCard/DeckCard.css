@@ -61,6 +61,7 @@
   .deck-info-container h4 {
     margin: 10px 0px 5px 0px;
     font-size: 18px;
+    color: #333333
   }
 
   .a-box:hover .deck-info-container h4, .a-box:hover .deck-info-container h3 {

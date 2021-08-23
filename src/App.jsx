@@ -112,8 +112,10 @@ useEffect(() => {
                <AddCards/>
             </Route>
             <Route path="/">
+               <title>EDH Builder</title>
+               <meta name="description" content="Build Magic the Gathering commander/EDH decks easily"/>
                <Dashboard/>
-            </Route>
+         </Route>
         </Switch>
         </Suspense>
         </div>
