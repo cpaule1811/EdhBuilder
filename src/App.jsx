@@ -36,7 +36,6 @@ useEffect(() => {
 
     return (
       <Router>
-      {}
        <Helmet>
           <title>EDH Builder</title>
           <meta name="description" content="Build Magic the Gathering commander/EDH decks easily"/>
