@@ -18,7 +18,7 @@ function DeckEditor() {
    
     const dispatch = useDispatch();
     const { decklist, isPending, authorised } = useSelector((state) => state.requestDecklist);
-    const { userId, isPendingLogin } = useSelector((state) => state.loginStatus);
+    const { userId } = useSelector((state) => state.loginStatus);
     let { url } = useRouteMatch();
     const { deckId } = useParams()
     const [isMounted, setIsMounted] = useState(false)
@@ -29,7 +29,7 @@ function DeckEditor() {
       }, [deckId, userId, dispatch])
 
     return (
-        isPending || isPendingLogin ? <Spinner/> : 
+        isPending ? <Spinner/> : 
         authorised ?
             <><div className="card-search-container">
             <DeckHeader/>
