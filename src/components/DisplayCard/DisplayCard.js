@@ -131,15 +131,14 @@ function DisplayCard({ card, view }) {
             <div className="display-card-overlay">
                 {card.imageUrl2 && <img onClick={() => setUrl(!url)} id="flip" src={flip} alt="icon" height="35px" width="35px"></img>}
                 <div className="overlay-functions">
-                {view==="add" ? <div id="left-space"></div> : <div className="input-wrapper"><img onClick={() => handleRemoveCard()} src={minus} alt="icon"/>
-                {card.cardStatus === "main" ? <button onClick={()=> handleMove("sideboard")} className="sideboard">SB</button> : <button onClick={()=> handleMove("main")} className="sideboard">MB</button>}
+                  {view === "add" ? <div id="left-space"/> : <div className="input-wrapper"><img onClick={() => handleRemoveCard()} src={minus} alt="icon"/>
+                  {card.cardStatus === "main" ? <button onClick={()=> handleMove("sideboard")} className="sideboard">SB</button> : <button onClick={()=> handleMove("main")} className="sideboard">MB</button>}
                 </div>}
                 <div className="price"><div>AUS</div><div>${card.price}</div></div>
                 <div className="input-wrapper"><input onChange={(e)=> {isNumberKey(e)} } placeholder={card.quantity} value={newQuantity} className="quantity" type="number" />
                 <img onClick={() => handleAddCard()} src={plus} alt="icon"/>
                 </div>
                 </div>
-
             </div>
         </div> 
     );

@@ -12,10 +12,13 @@ function PublicDeck() {
     return (
         <div style={{padding: "20px"}}>
             {isPending ? <img className="spinner" src={spinner} alt="loading spinner"/> :
-            <><DeckHeader/>
-            <div className= "editor-sidebar-bracket">
-            <EditorSidebar/>
-            <CardList/></div></>}
+            <>
+                <DeckHeader/>
+                <div className= "editor-sidebar-bracket">
+                    <EditorSidebar/>
+                    <CardList/>
+                </div>
+            </>}
         </div>
     );
 }

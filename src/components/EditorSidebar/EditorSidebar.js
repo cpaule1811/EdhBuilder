@@ -42,9 +42,10 @@ function EditorSidebar() {
           />
           {partner && <img className="commander-image partner-image" src={imageSwitch ? cardImagePartner : cardImage} alt="magic the gathering card"/>}
           <div className="purchase-wrapper"><div className="budget">Est. $Aus: {totalPrice()}</div>
-          <a target="_blank" rel="noreferrer" href={mtgMateUrl()}>
-             <div className="mtg-mate">Purchase</div>
-          </a></div>
+            <a target="_blank" rel="noreferrer" href={mtgMateUrl()}>
+              <div className="mtg-mate">Purchase</div>
+            </a>
+          </div>
           {userID === userId && <Suspense fallback={<>...</>}><Upload/></Suspense>}
           <CmcChart/>
           <ProducedChart/>

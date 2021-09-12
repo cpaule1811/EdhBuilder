@@ -69,13 +69,14 @@ function CardItem({ card }) {
                 display="hidden"
              />}
          </div> 
-                  <ReactTooltip className="tooltip" id={card.cardName} place="left" effect="solid" delayShow={200} >
-                     {/* <img className={`image-tooltip`} src={card.imageUrl} alt={card.cardName}/> */}
+                <ReactTooltip className="tooltip" id={card.cardName} place="left" effect="solid" delayShow={200} >
                      <LazyLoadImage className={`image-tooltip`} alt={card.cardName} height={"332"} src={card.imageUrl} width={"250"}/>
                      {card.imageUrl2 && <img className="image-tooltip" src={card.imageUrl2} alt={card.cardName}/>}
                      <div >{card.cardName}</div>
                      <div>{`$${card.price}`}</div>
-                     {<div className="ilegal-wrapper center"><div className="ilegal-card-text">{legality}</div></div>}
+                     {<div className="ilegal-wrapper center">
+                          <div className="ilegal-card-text">{legality}</div>
+                      </div>}
                   </ReactTooltip>
             </div>
     );

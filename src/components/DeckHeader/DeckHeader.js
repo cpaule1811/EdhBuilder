@@ -28,7 +28,7 @@ function DeckHeader() {
         <Helmet>
                <title>{deckName} - EDH Builder</title>
                <meta name="description" content={description}/>
-            </Helmet>
+        </Helmet>
        <div className="colored-image-background">
         <img src={cardArt} alt="commander art" width= "200px"/>
       </div>
@@ -41,15 +41,14 @@ function DeckHeader() {
               <img src={star} alt="rating for high quality magic the gathering commander deck"/>
           </div>
           <div className="rating-position">
-          <Rating {...{
-            fractions: 2,
-            initialRating: userRating,
-            onClick:(e) => handleRating(e),
-            emptySymbol: <img src={emptyStar} alt="rate magic the gathering deck"></img>,
-            fullSymbol: <img src={fullStar} alt="rate magic the gathering deck"></img>
-          }}/>
-          
-              </div>
+            <Rating {...{
+              fractions: 2,
+              initialRating: userRating,
+              onClick:(e) => handleRating(e),
+              emptySymbol: <img src={emptyStar} alt="rate magic the gathering deck"></img>,
+              fullSymbol: <img src={fullStar} alt="rate magic the gathering deck"></img>
+            }}/>
+          </div>
         </div>
       </div>
     );

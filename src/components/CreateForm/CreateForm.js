@@ -149,7 +149,7 @@ function CreateForm () {
                  value={location.pathname === '/adddeck' ? "build" : "edit"}
             />
             </div>
-             <div className="bottom-banner"></div>
+             <div className="bottom-banner"/>
             </div>
         </div>
         }

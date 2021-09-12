@@ -11,7 +11,7 @@ function DeckCard(props) {
         <div className="a-box">
         <LazyLoadImage id="commander-art" src={cardArt} alt="commander" title={`Artist: ${artist}`} width={220} height={210}/>
             <div className="deck-info-container">
-              <div className="inner-diagnal"></div>
+              <div className="inner-diagnal"/>
               <h3>{deckName}</h3>
               <h4>{commander}</h4>
               {partner && <h4>{`& ${partner}`}</h4>}

@@ -23,8 +23,8 @@ function Sidebar() {
     const { isSignedIn, username, profile, userId } = useSelector((state) =>  state.loginStatus)
     return (
         <div className={`sidebar ${!menuStatus && "hide-menu"}`}>
-        <div className="sidebar-background" style={{backgroundImage:`url(${backMenu})`, backgroundSize: 'cover'}}></div>
-        <div className="background-overlay"></div> 
+        <div className="sidebar-background" style={{backgroundImage:`url(${backMenu})`, backgroundSize: 'cover'}}/>
+        <div className="background-overlay"/>
         <div className="sidebar-container">
             <div onClick= {() => setShowProfileMenu(!showProfileMenu)} className="profile-tab">
                <img src={profile} alt="profile" width="50px" height="50px"/>

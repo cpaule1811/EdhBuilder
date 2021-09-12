@@ -64,7 +64,8 @@ function SearchBar({ url }) {
               <div>
                 <Link to={ `${url}/edit`}><img src={edit} alt="icon" width="25px" height="25px"/></Link>
                 </div>
-               <div className="search-tab" hidden>Edit</div></div>
+               <div className="search-tab" hidden>Edit</div>
+            </div>
            </div>
         </div>
         </div>
