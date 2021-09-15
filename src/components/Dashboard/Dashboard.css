@@ -5,7 +5,7 @@
 .welcome {
   height: 270px;
   box-shadow: 2px 4px 15px 3px rgba(0, 0, 0, 0.2);
-  background-image: url("../../img/welcome.jpg");
+  background-image: url("../../img/welcome.webp");
   background-size: cover;
   background-repeat: no-repeat;
   visibility: none;

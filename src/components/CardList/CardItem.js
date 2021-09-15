@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import ReactTooltip from "react-tooltip";
 import { useDispatch, useSelector } from "react-redux";
 import deleteBin from "../../icons/delete-bin.svg";
 import { updateDecklist } from "../../actions";
-import Message from "../Message/Message";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+
+const Message = lazy(() => import("../Message/Message"));
 
 function CardItem({ card }) {
   const { deckDetails, decklist, sideboard, authorised } = useSelector(
@@ -68,7 +69,7 @@ function CardItem({ card }) {
 
   return (
     <div>
-      {message && <Message message={message.message} color={message.color} />}
+      {message && <Suspense fallback={null}><Message message={message.message} color={message.color} /></Suspense>}
       <div
         data-tip
         data-for={card.cardName}

@@ -6,6 +6,7 @@ import Rating from "react-rating";
 import fullStar from "../../icons/full_star.svg";
 import emptyStar from "../../icons/empty_star.svg";
 import { Helmet } from "react-helmet";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function DeckHeader() {
   const {
@@ -40,7 +41,11 @@ function DeckHeader() {
         <meta name="description" content={description} />
       </Helmet>
       <div className="colored-image-background">
-        <img src={cardArt} alt="commander art" width="200px" />
+      <LazyLoadImage
+          alt={`commander ${commander} art`}
+          src={cardArt}
+          width="250px"
+        />
       </div>
       <div className="titles">
         <div className="deck-name">{deckName}</div>
