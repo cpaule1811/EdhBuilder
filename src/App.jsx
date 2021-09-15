@@ -18,12 +18,8 @@ const Signin = lazy(() => import("./components/SignInForms/Signin"));
 const DeckPages = lazy(() => import("./components/DeckPages/DeckPages"));
 const DeckEditor = lazy(() => import("./components/DeckEditor/DeckEditor"));
 const CreateForm = lazy(() => import("./components/CreateForm/CreateForm"));
-const ForgotPassword = lazy(() =>
-  import("./components/SignInForms/ForgotPassword")
-);
-const ResetPassword = lazy(() =>
-  import("./components/SignInForms/ResetPassword")
-);
+const ForgotPassword = lazy(() => import("./components/SignInForms/ForgotPassword"));
+const ResetPassword = lazy(() => import("./components/SignInForms/ResetPassword"));
 const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const AddCards = lazy(() => import("./components/SignInForms/AddCards"));
 const HowTo = lazy(() => import("./components/HowTo/HowTo"));
