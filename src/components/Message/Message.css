@@ -1,24 +1,29 @@
+.message {
+  position: fixed;
+  padding: 5px 20px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  z-index: 1000;
+  animation: mymove 1s 1s;
+}
 
-.message { 
-    position: fixed;
-    padding: 5px 20px;
-    border-radius: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+.green {
+  background-color: rgba(41, 241, 195, 1);
+}
+
+.red {
+  background-color: rgba(231, 76, 60, 1);
+}
+
+@keyframes mymove {
+  from {
+    opacity: 1;
     bottom: 30px;
-    z-index: 1000;
-    animation: mymove 1s 1s;
- }
-
- .green { 
-    background-color: rgba(41, 241, 195, 1);
- }
-
- .red { 
-     background-color: rgba(231, 76, 60, 1);
- }
- 
- @keyframes mymove {
-   from {opacity: 1; bottom: 30px}
-   to {opacity: 0; bottom: 70px}
- }
+  }
+  to {
+    opacity: 0;
+    bottom: 70px;
+  }
+}

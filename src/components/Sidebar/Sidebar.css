@@ -1,121 +1,124 @@
-.sidebar-container {  
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 250px;
-    overflow-y: hidden;
-    box-shadow: 3px 0px 10px 5px #00000048;
-    z-index: 1000;
-    margin-top: 95px; 
-    z-index: 1700;
+.sidebar-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 250px;
+  overflow-y: hidden;
+  box-shadow: 3px 0px 10px 5px #00000048;
+  z-index: 1000;
+  margin-top: 95px;
+  z-index: 1700;
 }
 
 .sidebar-background {
-    z-index: 1500; 
-    position: fixed;
-    min-height: 100vh; 
-    width: 250px; 
+  z-index: 1500;
+  position: fixed;
+  min-height: 100vh;
+  width: 250px;
 }
 
-.background-overlay { 
-    z-index: 1600;
-    position: fixed;
-    width: 250px;
-    height: 100vh; 
-    background-color: rgba(0,0,0, 0.85);
+.background-overlay {
+  z-index: 1600;
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .tabs {
-    height: auto;
-    padding: 5px 15px;
+  height: auto;
+  padding: 5px 15px;
 }
 
-.tabs-dropdown { 
-    height: auto;
-    padding: 15px 20px 0 20px;
+.tabs-dropdown {
+  height: auto;
+  padding: 15px 20px 0 20px;
 }
 
-.tab, .active-tab { 
-    height: 50px;
-    margin: 10px 0; 
-    color: white;
-    border-radius: 6px;
-    padding: 13px 0;
-    display: flex;
-    gap: 5%;
-    padding-left: 10px
+.tab,
+.active-tab {
+  height: 50px;
+  margin: 10px 0;
+  color: white;
+  border-radius: 6px;
+  padding: 13px 0;
+  display: flex;
+  gap: 5%;
+  padding-left: 10px;
 }
 
-.tab span, .active-tab span  {
-    padding: 4px ;
-    font-size: 14px;
-    text-transform: uppercase;
+.tab span,
+.active-tab span {
+  padding: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
-.tab:hover { 
-    cursor: pointer;
-    background-color: rgba(145, 139, 139, 0.35);
+.tab:hover {
+  cursor: pointer;
+  background-color: rgba(145, 139, 139, 0.35);
 }
 
-.tab:active { 
-    transform: translateY(5px);
+.tab:active {
+  transform: translateY(5px);
 }
 
-.active-tab { 
-    background-color: #7818a48e;
+.active-tab {
+  background-color: #7818a48e;
 }
 
-.profile-tab { 
-    margin-top: 90px; 
-    padding: 20px 5px 20px 0;
-    margin: 0 10px  10px;
-    border-bottom: solid 1px white;
-    cursor: pointer;
+.profile-tab {
+  margin-top: 90px;
+  padding: 20px 5px 20px 0;
+  margin: 0 10px 10px;
+  border-bottom: solid 1px white;
+  cursor: pointer;
 }
 
-.profile-tab img { 
-    border-radius: 50%;
+.profile-tab img {
+  border-radius: 50%;
 }
 
-.profile-tab #username { 
-    position: absolute;
-    color: white;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 4px;
-    padding-top: 17px;;
-    margin-left: 10px;
-    margin-top: 6px;
-    max-width:120px;
+.profile-tab #username {
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 4px;
+  padding-top: 17px;
+  margin-left: 10px;
+  margin-top: 6px;
+  max-width: 120px;
 }
 
-#drop-down { 
-    float: right;
-    margin-top: 18px;
+#drop-down {
+  float: right;
+  margin-top: 18px;
 }
 
-.tab-dropdown { 
-    height: 40px;
+.tab-dropdown {
+  height: 40px;
   font-size: 12px;
   padding: 8px 4px;
 }
 
-.profile-tab:active .tabs-dropdown  {
-    display: block;
+.profile-tab:active .tabs-dropdown {
+  display: block;
 }
 
-.tabs-two { 
-    margin-top: auto;
-    margin-bottom: 100px;
+.tabs-two {
+  margin-top: auto;
+  margin-bottom: 100px;
 }
 
 @media screen and (max-width: 800px) {
-    .sidebar-container, .sidebar-background, .background-overlay { 
-        width: 100vw;
-    }
-    .hide-menu { 
-        display: none;
-    }
-
+  .sidebar-container,
+  .sidebar-background,
+  .background-overlay {
+    width: 100vw;
+  }
+  .hide-menu {
+    display: none;
+  }
 }
