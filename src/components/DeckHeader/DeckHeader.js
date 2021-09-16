@@ -44,7 +44,7 @@ function DeckHeader() {
       <LazyLoadImage
           alt={`commander ${commander} art`}
           src={cardArt}
-          width="250px"
+          width="100%"
         />
       </div>
       <div className="titles">

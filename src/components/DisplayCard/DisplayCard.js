@@ -178,7 +178,7 @@ function DisplayCard({ card, view }) {
             alt="icon"
             height="35px"
             width="35px"
-          ></img>
+          />
         )}
         <div className="overlay-functions">
           {view === "add" ? (
