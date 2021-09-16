@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import { useSelector } from "react-redux";
 import "./CardList.css";
+import CardItem from './CardItem'
 
 const HowTo = lazy(() => import("../HowTo/HowTo"));
-const CardItem = lazy(() => import("./CardItem"));
 
 function CardList() {
   const { decklist, deckDetails, sideboard } = useSelector(
@@ -64,7 +64,6 @@ function CardList() {
           {" "}
           <div className="outer-cardlist-container">
             <div className="card-list-container">
-              <Suspense fallback={""}>
                 <div className="column">
                   {columns(
                     cardList().splice(0, 1).concat(cardList().splice(6, 1))
@@ -81,7 +80,6 @@ function CardList() {
                 <div className="column">
                   {columns(cardList().splice(2, 1).concat(sideBoard()))}
                 </div>
-              </Suspense>
             </div>
           </div>
           <div className="cardlist-description">
