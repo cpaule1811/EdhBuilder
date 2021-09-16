@@ -152,19 +152,21 @@ function DisplayCard({ card, view }) {
     <div className="display-card-container">
       {message && <Message message={message.message} color={message.color} />}
       <div className={`display-card-image ${legality && "ilegal"}`}>
-        <LazyLoadImage
-          className={`image-tooltip`}
-          alt={card.cardName}
-          height={"332"}
-          src={
-            url
-              ? card.imageUrl
-              : !card.imageUrl2
-              ? card.imageUrl
-              : card.imageUrl2
-          }
-          width={"250"}
-        />
+        {url && card.imageUrl2 ? (
+          <LazyLoadImage
+            alt={card.cardName}
+            height={"332"}
+            src={card.imageUrl}
+            width={"250"}
+          />
+        ) : (
+          <LazyLoadImage
+            alt={card.cardName}
+            height={"332"}
+            src={card.imageUrl2}
+            width={"250"}
+          />
+        )}
       </div>
       {card.quantity > 1 && view !== "add" && (
         <div className="quantity-number">x{card.quantity}</div>
@@ -178,7 +180,7 @@ function DisplayCard({ card, view }) {
             alt="icon"
             height="35px"
             width="35px"
-          />
+          ></img>
         )}
         <div className="overlay-functions">
           {view === "add" ? (

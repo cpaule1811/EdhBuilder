@@ -103,7 +103,7 @@ function CardItem({ card }) {
           width={"250"}
         />
         {card.imageUrl2 && (
-          <img
+          <LazyLoadImage
             className="image-tooltip"
             src={card.imageUrl2}
             alt={card.cardName}
