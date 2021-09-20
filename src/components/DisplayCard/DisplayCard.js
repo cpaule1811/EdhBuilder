@@ -156,14 +156,14 @@ function DisplayCard({ card, view }) {
           <LazyLoadImage
             alt={card.cardName}
             height={"332"}
-            src={card.imageUrl}
+            src={card.imageUrl2}
             width={"250"}
           />
         ) : (
           <LazyLoadImage
             alt={card.cardName}
             height={"332"}
-            src={card.imageUrl2}
+            src={card.imageUrl}
             width={"250"}
           />
         )}

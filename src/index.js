@@ -5,7 +5,6 @@ import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
-// import { logger } from 'redux-logger'
 import {
   requestDecklist,
   menuStatus,
