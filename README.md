@@ -3,9 +3,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Scree![edh-builder-screenshot](https://user-images.githubusercontent.com/80873472/136189860-e9c40dfe-f38d-4313-adaa-22bde6368a40.PNG)
-n Shot][product-screenshot]](https://example.com)
+(https://user-images.githubusercontent.com/80873472/136189860-e9c40dfe-f38d-4313-adaa-22bde6368a40.PNG)
 
 A deckbuilding website for the Magic the Gathering trading card game. 
 
