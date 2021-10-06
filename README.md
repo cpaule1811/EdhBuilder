@@ -9,7 +9,7 @@ A deckbuilding website for the Magic the Gathering trading card game.
 
 Key Features:
 * Redis caching to store JWT authentication tokens.
-* Connection to restful api to add, remove and edit cards in deck.
+* Connection to restful API to add, remove and edit cards in deck.
 * Ability to upload excel spreadsheet data to decklist.
 * Display reccomended cards in deck based off other users decks. 
 * Rate other users decks and track highest ratest decks.
