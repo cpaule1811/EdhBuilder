@@ -11,7 +11,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/leaderboard")
+    fetch(`${process.env.REACT_APP_API_URL}/leaderboard`)
       .then((response) => response.json())
       .then((leaderboardData) => {
         setLoading(false);

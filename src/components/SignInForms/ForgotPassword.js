@@ -7,7 +7,7 @@ function ForgotPassword() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/forgotpassword", {
+    fetch(`${process.env.REACT_APP_API_URL}/forgotpassword`, {
       method: "POST",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify({

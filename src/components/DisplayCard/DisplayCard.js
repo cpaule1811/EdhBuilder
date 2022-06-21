@@ -46,7 +46,7 @@ function DisplayCard({ card, view }) {
       quantity: newQuantity,
       deckID: deckDetails.deckID,
     });
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/addcard", {
+    fetch(`${process.env.REACT_APP_API_URL}/addcard`, {
       method: "POST",
       body: JSON.stringify(cardToAdd),
       headers: {
@@ -73,7 +73,7 @@ function DisplayCard({ card, view }) {
   };
 
   const handleRemoveCard = () => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/removecard", {
+    fetch(`${process.env.REACT_APP_API_URL}/removecard`, {
       method: "POST",
       body: JSON.stringify({ deckID: card.deckID, cardName: card.cardName }),
       headers: {
@@ -101,7 +101,7 @@ function DisplayCard({ card, view }) {
   };
 
   const handleMove = (status) => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/sideboard", {
+    fetch(`${process.env.REACT_APP_API_URL}/sideboard`, {
       method: "PUT",
       body: JSON.stringify({
         deckID: card.deckID,

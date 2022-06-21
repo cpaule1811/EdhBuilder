@@ -13,7 +13,7 @@ function Contact() {
 
   const onSend = (e) => {
     e.preventDefault();
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/send", {
+    fetch(`${process.env.REACT_APP_API_URL}/send`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",

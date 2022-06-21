@@ -13,7 +13,7 @@ function DeckPages({ source }) {
   const DeckPagesCounter = lazy(() => import("./DeckPagesCounter"));
 
   useEffect(() => {
-    const url = `https://edh-builder-api-m7vk6.ondigitalocean.app/decknum${source}/${userId}`;
+    const url = `${process.env.REACT_APP_API_URL}/decknum${source}/${userId}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -25,7 +25,7 @@ function DeckPages({ source }) {
   const handlePageChange = useCallback(
     (val) => {
       setPageNo(val);
-      const url = `https://edh-builder-api-m7vk6.ondigitalocean.app/decks${source}/${val}/${userId}`;
+      const url = `${process.env.REACT_APP_API_URL}/decks${source}/${val}/${userId}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {

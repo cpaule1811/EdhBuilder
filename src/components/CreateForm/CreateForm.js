@@ -23,7 +23,7 @@ function CreateForm() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/commanders`)
+    fetch(`${process.env.REACT_APP_API_URL}/commanders`)
       .then((response) => response.json())
       .then((loadedCards) => {
         if (loadedCards.length) {
@@ -80,8 +80,7 @@ function CreateForm() {
 
   const createDeck = (e) => {
     e.preventDefault();
-    console.log(selectedOptionMain, selectedOptionPartner);
-    const fetchUrl = `https://edh-builder-api-m7vk6.ondigitalocean.app/${
+    const fetchUrl = `${process.env.REACT_APP_API_URL}/${
       location.pathname !== "/adddeck"
         ? `editdeck/${deckDetails.deckID}`
         : "createdeck"

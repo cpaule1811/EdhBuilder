@@ -11,7 +11,7 @@ function Recommended() {
 
   useEffect(() => {
     fetch(
-      `https://edh-builder-api-m7vk6.ondigitalocean.app/recommend/${deckDetails.commander}/${deckDetails.partner}`
+      `${process.env.REACT_APP_API_URL}/recommend/${deckDetails.commander}/${deckDetails.partner}`
     )
       .then((response) => response.json())
       .then((cards) => {

@@ -17,7 +17,7 @@ export const requestDecklist = (deckId, userId) => (dispatch) => {
   const token = window.localStorage.getItem("token");
   dispatch({ type: REQUEST_DECKLIST_PENDING });
   fetch(
-    `https://edh-builder-api-m7vk6.ondigitalocean.app/requestdeck/${deckId}/${userId}`,
+    `${process.env.REACT_APP_API_URL}/requestdeck/${deckId}/${userId}`,
     {
       method: "GET",
       headers: {
@@ -48,7 +48,7 @@ export const requestUserGoogle = (res) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
   if (res) {
     const token = res.tokenId;
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/signin", {
+    fetch(`${process.env.REACT_APP_API_URL}/signin`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -80,7 +80,7 @@ const saveAuthTokenInSession = (token) => {
 const fetchProfile = (dispatch, token, data) => {
   if (data && data.userID) {
     fetch(
-      `https://edh-builder-api-m7vk6.ondigitalocean.app/profile/${data.userID}`,
+      `${process.env.REACT_APP_API_URL}/profile/${data.userID}`,
       {
         method: "GET",
         headers: {
@@ -102,7 +102,7 @@ const fetchProfile = (dispatch, token, data) => {
 export const requestUserWithToken = () => (dispatch) => {
   const token = window.localStorage.getItem("token");
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/signin", {
+  fetch(`${process.env.REACT_APP_API_URL}/signin`, {
     method: "post",
     headers: {
       "content-Type": "application/json",
@@ -120,7 +120,7 @@ export const requestUserWithToken = () => (dispatch) => {
 
 export const requestUser = (signinValues) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/signin", {
+  fetch(`${process.env.REACT_APP_API_URL}/signin`, {
     method: "post",
     headers: { "content-Type": "application/json" },
     body: JSON.stringify({
@@ -150,7 +150,7 @@ export const requestUser = (signinValues) => (dispatch) => {
 
 export const registerUser = (registerValues) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/register", {
+  fetch(`${process.env.REACT_APP_API_URL}/register`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

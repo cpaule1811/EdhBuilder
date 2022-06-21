@@ -11,7 +11,7 @@ function ResetPassword() {
   const [invalid, setInvalid] = useState(false);
 
   useEffect(() => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/checkresetvalid", {
+    fetch(`${process.env.REACT_APP_API_URL}/checkresetvalid`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: resetid,
@@ -28,7 +28,7 @@ function ResetPassword() {
   const handleForm = (e) => {
     e.preventDefault();
     if (passwordField === conPasswordField) {
-      fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/resetpassword", {
+      fetch(`${process.env.REACT_APP_API_URL}/resetpassword`, {
         method: "PUT",
         headers: {
           "content-Type": "application/json",

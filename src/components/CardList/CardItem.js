@@ -40,7 +40,7 @@ function CardItem({ card }) {
   }, [deckDetails, card]);
 
   const handleRemoveCard = () => {
-    fetch("https://edh-builder-api-m7vk6.ondigitalocean.app/removecard", {
+    fetch(`${process.env.REACT_APP_API_URL}/removecard`, {
       method: "POST",
       body: JSON.stringify({ deckID: card.deckID, cardName: card.cardName }),
       headers: {

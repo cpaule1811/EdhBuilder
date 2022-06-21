@@ -22,7 +22,7 @@ function SearchBar({ url }) {
 
   const fetchSearchedCards = (val) => {
     setSearchField(val);
-    fetch(`https://edh-builder-api-m7vk6.ondigitalocean.app/search?name=${val}`)
+    fetch(`${process.env.REACT_APP_API_URL}/search?name=${val}`)
       .then((response) => response.json())
       .then((searchedCards) => {
         if (val) {
@@ -102,9 +102,9 @@ function SearchBar({ url }) {
         </div>
       </div>
       <div id="searchedCards" className="searched-cards">
-        {loadedCards.map((item, i) => (
+        {loadedCards.map((item, i) =>
           <DisplayCard key={i} card={item} view="add" />
-        ))}
+        )}
       </div>
     </>
   );
