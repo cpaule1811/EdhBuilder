@@ -9,8 +9,7 @@ import {
   REQUEST_USER_SUCCESS,
   REQUEST_USER_FAILURE,
   REQUEST_USER_SIGNOUT,
-  UPDATE_USER,
-  REQUEST_SIDEBAR_STATUS,
+  UPDATE_USER
 } from "./constants";
 
 export const requestDecklist = (deckId, userId) => (dispatch) => {
@@ -179,8 +178,4 @@ export const updateUser = (user) => {
 
 export const setMenuStatus = (status) => {
   return { type: REQUEST_MENU_STATUS, payload: status };
-};
-
-export const setSidebarStatus = (status) => {
-  return { type: REQUEST_SIDEBAR_STATUS, payload: status };
 };
