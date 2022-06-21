@@ -13,6 +13,8 @@ Key Features:
 * Ability to upload excel spreadsheet data to decklist.
 * Display reccomended cards in deck based off other users decks. 
 * Rate other users decks and track highest ratest decks.
+* Postgres database to store user and deck information
+* Bcrypt hashing to securely store passwords.
 
 API Repository: [EDH Builder Api](https://github.com/cpaule1811/edh-builder-api)
 
