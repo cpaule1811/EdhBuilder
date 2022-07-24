@@ -23,7 +23,7 @@ function AddCards() {
     e.preventDefault();
     const fd = new FormData();
     fd.append("file", jsonFile);
-    fetch(`${process.env.REACT_APP_API_URL}/jsonentrys`, {
+    fetch(`${process.env.REACT_APP_API_URL}jsonentrys`, {
       method: "POST",
       body: fd,
     });
@@ -73,7 +73,7 @@ function AddCards() {
         });
         const token = window.localStorage.getItem("token");
         fetch(
-          `${process.env.REACT_APP_API_URL}/updateentries`,
+          `${process.env.REACT_APP_API_URL}updateentries`,
           {
             method: "POST",
             headers: {

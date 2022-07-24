@@ -23,7 +23,7 @@ function CreateForm() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/commanders`)
+    fetch(`${process.env.REACT_APP_API_URL}commanders`)
       .then((response) => response.json())
       .then((loadedCards) => {
         if (loadedCards.length) {
@@ -80,7 +80,7 @@ function CreateForm() {
 
   const createDeck = (e) => {
     e.preventDefault();
-    const fetchUrl = `${process.env.REACT_APP_API_URL}/${
+    const fetchUrl = `${process.env.REACT_APP_API_URL}${
       location.pathname !== "/adddeck"
         ? `editdeck/${deckDetails.deckID}`
         : "createdeck"

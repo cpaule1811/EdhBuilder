@@ -11,7 +11,7 @@ function Recommended() {
 
   useEffect(() => {
     fetch(
-      `${process.env.REACT_APP_API_URL}/recommend/${deckDetails.commander}/${deckDetails.partner}`
+      `${process.env.REACT_APP_API_URL}recommend/${deckDetails.commander}/${deckDetails.partner}`
     )
       .then((response) => response.json())
       .then((cards) => {

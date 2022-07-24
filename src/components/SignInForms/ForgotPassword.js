@@ -7,7 +7,7 @@ function ForgotPassword() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}/forgotpassword`, {
+    fetch(`${process.env.REACT_APP_API_URL}forgotpassword`, {
       method: "POST",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify({

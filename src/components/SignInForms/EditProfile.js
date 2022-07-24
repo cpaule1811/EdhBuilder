@@ -44,7 +44,7 @@ function EditProfile() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}/username`, {
+    fetch(`${process.env.REACT_APP_API_URL}username`, {
       method: "PUT",
       headers: {
         "content-Type": "application/json",

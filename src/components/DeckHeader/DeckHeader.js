@@ -23,7 +23,7 @@ function DeckHeader() {
   const { userId } = useSelector((state) => state.loginStatus);
 
   const handleRating = (e) => {
-    fetch(`${process.env.REACT_APP_API_URL}/rating`, {
+    fetch(`${process.env.REACT_APP_API_URL}rating`, {
       method: "post",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify({

@@ -46,7 +46,7 @@ function DisplayCard({ card, view }) {
       quantity: newQuantity,
       deckID: deckDetails.deckID,
     });
-    fetch(`${process.env.REACT_APP_API_URL}/addcard`, {
+    fetch(`${process.env.REACT_APP_API_URL}addcard`, {
       method: "POST",
       body: JSON.stringify(cardToAdd),
       headers: {
@@ -73,7 +73,7 @@ function DisplayCard({ card, view }) {
   };
 
   const handleRemoveCard = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/removecard`, {
+    fetch(`${process.env.REACT_APP_API_URL}removecard`, {
       method: "POST",
       body: JSON.stringify({ deckID: card.deckID, cardName: card.cardName }),
       headers: {
@@ -101,7 +101,7 @@ function DisplayCard({ card, view }) {
   };
 
   const handleMove = (status) => {
-    fetch(`${process.env.REACT_APP_API_URL}/sideboard`, {
+    fetch(`${process.env.REACT_APP_API_URL}sideboard`, {
       method: "PUT",
       body: JSON.stringify({
         deckID: card.deckID,

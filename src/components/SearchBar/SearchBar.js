@@ -22,7 +22,7 @@ function SearchBar({ url }) {
 
   const fetchSearchedCards = (val) => {
     setSearchField(val);
-    fetch(`${process.env.REACT_APP_API_URL}/search?name=${val}`)
+    fetch(`${process.env.REACT_APP_API_URL}search?name=${val}`)
       .then((response) => response.json())
       .then((searchedCards) => {
         if (val) {

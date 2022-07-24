@@ -8,7 +8,7 @@ import "./Sidebar.css";
 function GoogleSignOut() {
   const dispatch = useDispatch();
   const signOut = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/signout`, {
+    fetch(`${process.env.REACT_APP_API_URL}signout`, {
       method: "GET",
       headers: {
         "content-Type": "application/json",

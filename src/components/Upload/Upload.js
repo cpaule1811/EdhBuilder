@@ -30,7 +30,7 @@ function Upload() {
       var workbook = XLSX.read(data, { type: "array" });
       var first_worksheet = workbook.Sheets[workbook.SheetNames[0]];
       var uploadData = XLSX.utils.sheet_to_json(first_worksheet, { header: 1 });
-      fetch(`${process.env.REACT_APP_API_URL}/exceldecklist`, {
+      fetch(`${process.env.REACT_APP_API_URL}exceldecklist`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
