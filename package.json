@@ -2,6 +2,7 @@
   "name": "edh-builder",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "homepage": "https://edhbuilder.com.au",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -21,21 +22,21 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-select": "^4.3.1",
-    "react-select-virtualized": "^3.0.0",
     "react-tooltip": "^4.2.21",
-    "react-virtualized": "^9.22.3",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
     "serve": "^13.0.2",
     "web-vitals": "^1.1.2",
     "xlsx": "^0.17.0"
   },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.0.0",
+    "vite": "^3.0.2"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite serve --host",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [

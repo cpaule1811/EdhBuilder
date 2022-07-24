@@ -16,7 +16,7 @@ export const requestDecklist = (deckId, userId) => (dispatch) => {
   const token = window.localStorage.getItem("token");
   dispatch({ type: REQUEST_DECKLIST_PENDING });
   fetch(
-    `${process.env.REACT_APP_API_URL}requestdeck/${deckId}/${userId}`,
+    `${import.meta.env.VITE_API_URL}requestdeck/${deckId}/${userId}`,
     {
       method: "GET",
       headers: {
@@ -47,7 +47,7 @@ export const requestUserGoogle = (res) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
   if (res) {
     const token = res.tokenId;
-    fetch(`${process.env.REACT_APP_API_URL}signin`, {
+    fetch(`${import.meta.env.VITE_API_URL}signin`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -79,7 +79,7 @@ const saveAuthTokenInSession = (token) => {
 const fetchProfile = (dispatch, token, data) => {
   if (data && data.userID) {
     fetch(
-      `${process.env.REACT_APP_API_URL}profile/${data.userID}`,
+      `${import.meta.env.VITE_API_URL}profile/${data.userID}`,
       {
         method: "GET",
         headers: {
@@ -101,7 +101,7 @@ const fetchProfile = (dispatch, token, data) => {
 export const requestUserWithToken = () => (dispatch) => {
   const token = window.localStorage.getItem("token");
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch(`${process.env.REACT_APP_API_URL}signin`, {
+  fetch(`${import.meta.env.VITE_API_URL}signin`, {
     method: "post",
     headers: {
       "content-Type": "application/json",
@@ -119,7 +119,7 @@ export const requestUserWithToken = () => (dispatch) => {
 
 export const requestUser = (signinValues) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch(`${process.env.REACT_APP_API_URL}signin`, {
+  fetch(`${import.meta.env.VITE_API_URL}signin`, {
     method: "post",
     headers: { "content-Type": "application/json" },
     body: JSON.stringify({
@@ -149,7 +149,7 @@ export const requestUser = (signinValues) => (dispatch) => {
 
 export const registerUser = (registerValues) => (dispatch) => {
   dispatch({ type: REQUEST_USER_PENDING });
-  fetch(`${process.env.REACT_APP_API_URL}register`, {
+  fetch(`${import.meta.env.VITE_API_URL}register`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

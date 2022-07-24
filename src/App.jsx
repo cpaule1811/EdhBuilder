@@ -1,9 +1,8 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar.js";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import Logo from "./components/Logo/Logo";
-import spinner from "./icons/spinner.svg";
 import { requestUserWithToken } from "./actions";
 import { useDispatch } from "react-redux";
 import {
@@ -13,18 +12,17 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
-const Signin = lazy(() => import("./components/SignInForms/Signin"));
-const DeckPages = lazy(() => import("./components/DeckPages/DeckPages"));
-const DeckEditor = lazy(() => import("./components/DeckEditor/DeckEditor"));
-const CreateForm = lazy(() => import("./components/CreateForm/CreateForm"));
-const ForgotPassword = lazy(() => import("./components/SignInForms/ForgotPassword"));
-const ResetPassword = lazy(() => import("./components/SignInForms/ResetPassword"));
-const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
-const AddCards = lazy(() => import("./components/SignInForms/AddCards"));
-const HowTo = lazy(() => import("./components/HowTo/HowTo"));
-const EditProfile = lazy(() => import("./components/SignInForms/EditProfile"));
-const Contact = lazy(() => import("./components/Contact/Contact"));
+import Signin from "./components/SignInForms/Signin";
+import DeckPages from "./components/DeckPages/DeckPages";
+import CreateForm from "./components/CreateForm/CreateForm";
+import DeckEditor from "./components/DeckEditor/DeckEditor";
+import EditProfile from "./components/SignInForms/EditProfile";
+import HowTo from "./components/HowTo/HowTo";
+import ForgotPassword from "./components/SignInForms/ForgotPassword";
+import ResetPassword from "./components/SignInForms/ResetPassword";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Contact from "./components/Contact/Contact";
+import AddCards from "./components/SignInForms/AddCards";
 
 function App() {
   const { isSignedIn, username } = useSelector((state) => state.loginStatus);
@@ -47,11 +45,6 @@ function App() {
         <Logo />
         <Sidebar />
         <div className="layout">
-          <Suspense
-            fallback={
-              <img className="spinner" src={spinner} alt="loading spinner" />
-            }
-          >
             <Switch>
               <Route path="/signin">
                 <Helmet>
@@ -136,7 +129,7 @@ function App() {
                     content="Contact us if you have any inquries about the application"
                   />
                 </Helmet>
-                <Contact />
+                <Contact/>
               </Route>
               <Route path="/forgotyourpassword">
                 <ForgotPassword />
@@ -156,7 +149,6 @@ function App() {
                 <Dashboard />
               </Route>
             </Switch>
-          </Suspense>
         </div>
       </div>
     </Router>

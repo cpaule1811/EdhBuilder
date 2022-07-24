@@ -25,8 +25,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          REACT_APP_GOOGLE: ${{ secrets.REACT_APP_GOOGLE }}
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          VITE_GOOGLE: ${{ secrets.VITE_GOOGLE }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
