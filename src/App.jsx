@@ -11,7 +11,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Signin from "./components/SignInForms/Signin";
 import DeckPages from "./components/DeckPages/DeckPages";
 import CreateForm from "./components/CreateForm/CreateForm";

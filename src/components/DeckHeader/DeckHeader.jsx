@@ -5,7 +5,7 @@ import star from "../../icons/full_star.svg";
 import Rating from "react-rating";
 import fullStar from "../../icons/full_star.svg";
 import emptyStar from "../../icons/empty_star.svg";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function DeckHeader() {
