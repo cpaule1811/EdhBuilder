@@ -1,3 +1,6 @@
 ﻿Server/obj
 Server/Properties
 Client/package-lock.json
+Server/bin
+.idea
+EdhBuilder.sln.DotSettings.user
