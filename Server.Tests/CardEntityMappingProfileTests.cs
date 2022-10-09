@@ -18,18 +18,14 @@ public class CardEntityMappingProfileTests
     private IMapper _mapper;
 
     [OneTimeSetUp]
-    public void Init() {
+    public void Setup() {
         var configuration = new MapperConfiguration(cfg => {
             cfg.AddProfile<CardEntityMappingProfile>();
         });
         
         _mapper = new Mapper(configuration);
-    }
-
-    [SetUp]
-    public void Setup() {
+        
         var CardJsonReader = new CardJsonReader(new FileInfo(TestCardDtosPath));
-
         _testCardDtos = CardJsonReader.Read();
     }
 
