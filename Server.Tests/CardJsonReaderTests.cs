@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AutoMapper;
-using Newtonsoft.Json;
 using NUnit.Framework;
-using Server.Controllers;
 using Server.Dtos;
-using Card = Server.Dtos.Card;
+using Server.Services;
 
 namespace Server.Tests;
 
@@ -23,11 +18,12 @@ public class CardJsonReaderTests
     }
 
     [Test]
-    public void Read_WhenValidJson_ShouldReturnNotEmpty() {
+    public void Read_WhenValidJson_ShouldHaveCorrectNumberOfRecords() {
         IEnumerable<CardDto> cardsResult;
-        
+        const int ExpectedCount = 2;
+
         cardsResult = _cardJsonReader.Read();
         
-        CollectionAssert.IsNotEmpty(cardsResult);
+        Assert.AreEqual(ExpectedCount, cardsResult.Count());
     }
 }

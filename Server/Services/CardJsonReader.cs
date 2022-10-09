@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Server.Dtos;
 
-namespace Server.Controllers;
+namespace Server.Services;
 
 public class CardJsonReader
 {
-    private FileInfo _cardData;
+    private readonly FileInfo _cardData;
     
     public CardJsonReader(FileInfo cardData) {
         _cardData = cardData;

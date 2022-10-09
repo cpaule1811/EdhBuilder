@@ -4,9 +4,10 @@ using System.IO;
 using AutoMapper;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using Server.Controllers;
 using Server.Dtos;
-using Card = Server.Dtos.Card;
+using Server.Models;
+using Server.Services;
+using Card = Server.Models.Card;
 
 namespace Server.Tests;
 
