@@ -4,3 +4,5 @@ Client/package-lock.json
 Server/bin
 .idea
 EdhBuilder.sln.DotSettings.user
+Server.Tests/obj
+Server.Tests/bin
