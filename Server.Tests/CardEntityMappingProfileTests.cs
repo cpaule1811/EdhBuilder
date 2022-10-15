@@ -5,9 +5,8 @@ using AutoMapper;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Server.Dtos;
-using Server.Models;
+using Server.Entities;
 using Server.Services;
-using Card = Server.Models.Card;
 
 namespace Server.Tests;
 
@@ -31,8 +30,8 @@ public class CardEntityMappingProfileTests
 
     [Test]
     public void CardMap_WhenGivenDto_ShouldReturnExpectedResult() {
-        var expected = new Card {
-            OracleId = Guid.ParseExact("09cc8709-fe10-472a-b05c-e89f3523018d", "D"),
+        var expected = new CardEntity {
+            OracleId = "09cc8709-fe10-472a-b05c-e89f3523018d",
             Name = "Austere Command",
             Lang = "en",
             Layout = "normal",
@@ -42,8 +41,8 @@ public class CardEntityMappingProfileTests
             ColorIndicator = Array.Empty<string>(),
             ColorIdentity = new []{ "W" },
             Keywords = Array.Empty<string>(),
-            AllParts = Array.Empty<AllPart>(),
-            Legalities = new Legalities {
+            AllParts = Array.Empty<AllPartEntity>(),
+            LegalitiesEntity = new LegalitiesEntity {
                 Standard = false,
                 Pioneer = false,
                 Modern = true,
@@ -52,7 +51,7 @@ public class CardEntityMappingProfileTests
                 Commander = true,
                 Brawl = false
             },
-            CardVersions = new CardVersion[] {
+            CardVersions = new CardVersionEntity[] {
                 new () {
                     Artist = "Anna Steinbauer",
                     IsPromo = false,
@@ -85,7 +84,7 @@ public class CardEntityMappingProfileTests
         };
         var expectedAsJson = JsonConvert.SerializeObject(expected);
         
-        var result = _mapper.Map<Card>(_testCardDtos);
+        var result = _mapper.Map<CardEntity>(_testCardDtos);
         var resultAsJson = JsonConvert.SerializeObject(result);
         
         Assert.AreEqual(expectedAsJson, resultAsJson);

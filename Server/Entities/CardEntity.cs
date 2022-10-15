@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace Server.Models;
+namespace Server.Entities;
 
-public class Card
+public class CardEntity
 {
-    public Guid OracleId { get; set; }
+    [BsonId]
+    public string OracleId { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Lang { get; set; } = string.Empty;
     public string Layout { get; set; } = string.Empty;
@@ -15,26 +17,17 @@ public class Card
     public IEnumerable<string> ColorIndicator { get; set; } = Enumerable.Empty<string>();
     public IEnumerable<string> ColorIdentity { get; set; } = Enumerable.Empty<string>();
     public IEnumerable<string> Keywords { get; set; } = Enumerable.Empty<string>();
-    public IEnumerable<AllPart> AllParts { get; set; } = Enumerable.Empty<AllPart>();
-    public Legalities Legalities { get; set; } = new ();
-    public IEnumerable<CardVersion> CardVersions { get; set; } = Enumerable.Empty<CardVersion>();
+    public IEnumerable<AllPartEntity> AllParts { get; set; } = Enumerable.Empty<AllPartEntity>();
+    public LegalitiesEntity LegalitiesEntity { get; set; } = new ();
+    public IEnumerable<CardVersionEntity> CardVersions { get; set; } = Enumerable.Empty<CardVersionEntity>();
 }
 
-public class AllPart
+public class AllPartEntity
 {
-    public Guid Id { get; set; }
+    public Guid PartId { get; set; }
 }
 
-public class ImageUris
-{
-    [JsonProperty("normal")] 
-    public Uri Normal { get; set; } 
-
-    [JsonProperty("art_crop")]
-    public Uri ArtCrop { get; set; }
-}
-
-public class Legalities
+public class LegalitiesEntity
 {
     public bool Standard { get; set; }
     public bool Pioneer { get; set; }
@@ -45,7 +38,7 @@ public class Legalities
     public bool Brawl { get; set; }
 }
 
-public class CardVersion
+public class CardVersionEntity
 {
     public string Set { get; set; }
     public string SetName { get; set; }

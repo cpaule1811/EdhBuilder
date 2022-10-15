@@ -8,7 +8,7 @@ namespace Server.Dtos
         public string Object { get; set; }
 
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("oracle_id")]
         public Guid OracleId { get; set; }

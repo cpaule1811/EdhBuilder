@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Server.Dtos;
-using Server.Models;
+using Server.Entities;
 
 namespace Server;
 
@@ -10,7 +10,7 @@ public class CardEntityMappingProfile : Profile
         legality == "legal";
     
     public CardEntityMappingProfile() {
-        CreateMap<LegalitiesDto, Legalities>()
+        CreateMap<LegalitiesDto, LegalitiesEntity>()
             .ForMember(
                 dest => dest.Commander,
                 opt => 
@@ -40,7 +40,12 @@ public class CardEntityMappingProfile : Profile
                 dest => dest.Modern,
                 opt => opt.MapFrom(src => ConvertLegalityToBool(src.Modern))
             );
-        CreateMap<CardDto, CardVersion>()
+        CreateMap<AllPartDto, AllPartEntity>()
+            .ForMember(
+                dest => dest.PartId,
+                opt => opt.MapFrom(src => src.Id)
+            );
+        CreateMap<CardDto, CardVersionEntity>()
             .ForMember(
                 dest => dest.IsFoil,
                 opt => opt.MapFrom(src => src.Foil)
@@ -64,7 +69,7 @@ public class CardEntityMappingProfile : Profile
             .ForMember(
                 dest => dest.IsVariation, 
                 opt => opt.MapFrom(src=> src.Variation));
-        CreateMap<IEnumerable<CardDto>, Card>()
+        CreateMap<IEnumerable<CardDto>, CardEntity>()
             .ForMember(
                 dest => dest.CardVersions,
                 opt => opt.MapFrom(src => src)
@@ -110,7 +115,7 @@ public class CardEntityMappingProfile : Profile
                 opt => opt.MapFrom(src => src.First().Toughness)
              )
             .ForMember(
-                dest => dest.Legalities,
+                dest => dest.LegalitiesEntity,
                 opt => opt.MapFrom(src => src.First().LegalitiesDto)
             )
             .ForMember(
