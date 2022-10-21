@@ -1,17 +1,12 @@
 import { initTRPC } from '@trpc/server';
-import { pokemonList, trainerList } from '../index';
 import { Context } from "../expressContext";
+import { deleteCards, findCard } from "../services/cardService"
 
 const trpc = initTRPC.context<Context>().create();
 
 export const appRouter = trpc.router({
-    pokemon: trpc.procedure.query(() => pokemonList[0]),
-    getAllPokemon: trpc.procedure.query(() => trainerList[0]),
-    createPokemon: trpc.procedure.mutation(() => {
-        pokemonList.push({ name: "Charmander", type: "fire" })
-
-        return pokemonList;
-    })
+    card: trpc.procedure.query(async () => await findCard()),
+    deleteCards: trpc.procedure.query(async  () => await deleteCards())
 });
 
 export type AppRouter = typeof appRouter;

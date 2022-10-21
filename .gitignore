@@ -7,3 +7,6 @@ EdhBuilder.sln.DotSettings.user
 Server.Tests/obj
 Server.Tests/bin
 Server/node_modules
+Server/build
+Server/.env
+Server/Data

@@ -1,29 +1,18 @@
+import 'dotenv/config';
 import express, { Express } from 'express';
-import dotenv from 'dotenv';
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { Pokemon } from './interfaces/Pokemon';
-import { Trainer } from './interfaces/Trainer';
 import { appRouter } from './routers/appRouter';
 import { createContext } from "./expressContext";
-
-dotenv.config();
+import * as fs from "fs";
+import path from "path";
 
 const app: Express = express();
 const port = process.env.PORT;
 
-export const pokemonList: Pokemon[] = [
-    {
-      type: 'electic',
-      name: 'Pikachu',
-    },
-];
-
-export const trainerList: Trainer[] = [
-  {
-    name: 'Charlie',
-    numberOfPokemon: 5
-  },
-];
+// const dirContents = fs.readdirSync(__dirname);
+// console.log(dirContents);
+// const fileContents = fs.readFileSync(path.join(__dirname, "./tests/mockData/mockCards.json"))
+// console.log(fileContents);
 
 app.use(
     '/trpc',
