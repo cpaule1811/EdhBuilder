@@ -13,30 +13,37 @@ export interface Card {
     colorIdentity: string[];
     colorIndicator: string[];
     keywords: string[];
+    cardFaces: string[];
     allParts: {
-        id: string,
-        component: string
+        id: string;
+        component: string;
     }[];
     legalities: {
-        standard: boolean
-        pioneer: boolean
-        modern: boolean
-        legacy: boolean
-        vintage: boolean
-        commander: boolean
-        brawl: boolean
+        standard: boolean;
+        pioneer: boolean;
+        modern: boolean;
+        legacy: boolean;
+        vintage: boolean;
+        commander: boolean;
+        brawl: boolean;
     };
     cardVersions: {
-        set: string
-        setName: string
-        cardImage: string
-        artCrop: string
-        artist: string
-        isFoil: boolean
-        isPromo: boolean
-        isReprint: boolean
-        rarity: string
-        borderColor: string
+        versionId: string;
+        set: string;
+        setName: string;
+        cardImage: string;
+        flavorName: string;
+        flavorText: string;
+        artCrop: string;
+        artist: string;
+        isFoil: boolean;
+        isPromo: boolean;
+        isReprint: boolean;
+        isFullArt: boolean;
+        isOversized: boolean;
+        isTextless: boolean;
+        rarity: string;
+        borderColor: string;
     }[]
 }
 

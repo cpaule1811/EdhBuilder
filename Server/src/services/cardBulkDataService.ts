@@ -1,5 +1,6 @@
 import { Card } from "../models/Card";
 import { rawCardDto } from "../dtos/rawCardDto";
+import { findCard } from "./cardService";
 
 export const readCardsFromJson = (cardsAsJson: string): rawCardDto[] =>
     JSON.parse(cardsAsJson)
@@ -43,6 +44,7 @@ export const mapRawCardDtosToCard = (groupedCardDto: rawCardDto[]): Card => {
         manaCost: firstGroupedDto.mana_cost,
         oracleText: firstGroupedDto.oracle_text,
         allParts: firstGroupedDto.all_parts?.map(part => ({id: part.id, component: part.component})) ?? [],
+        cardFaces: firstGroupedDto.card_faces?.map(cardFace => cardFace.oracle_id) ?? [],
         legalities: {
             standard: legalityStrToTruthy(legalities.standard),
             pioneer: legalityStrToTruthy(legalities.pioneer),
@@ -53,17 +55,23 @@ export const mapRawCardDtosToCard = (groupedCardDto: rawCardDto[]): Card => {
             brawl: legalityStrToTruthy(legalities.brawl),
         },
         cardVersions: groupedCardDto.map(cardVersion => ({
+            // TODO: Potential bottleneck querying card version ids of cards not related to this object.
+            versionId: cardVersion.id,
             artCrop: cardVersion.image_uris.art_crop,
             artist: cardVersion.artist,
+            flavorText: cardVersion.flavor_text ?? "",
+            flavorName: cardVersion.flavor_name ?? "",
             borderColor: cardVersion.border_color,
             cardImage: cardVersion.image_uris.normal,
             isFoil: cardVersion.foil,
             isPromo: cardVersion.promo,
             isReprint: cardVersion.reprint,
+            isOversized:  cardVersion.oversized,
             rarity: cardVersion.rarity,
             set: cardVersion.set,
-            setName: cardVersion.set_name
-
+            setName: cardVersion.set_name,
+            isFullArt: cardVersion.full_art,
+            isTextless: cardVersion.textless
         }))
     }
 }
