@@ -1,8 +1,8 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import { insertCard, upsertCards } from "../../services/cardService";
+import { getCards, GetCardsResult, insertCard, upsertCards } from "../../services/cardService";
 import { mockCards } from "../mockData/mockCards";
 import { expect } from "@jest/globals";
-import { mongoClient, cardDb } from "../../mongoClient";
+import { mongoClient } from "../../mongoClient";
 import { cardsCollection } from "../../models/Card";
 import { mockCard } from "../mockData/mockCard";
 
@@ -10,7 +10,6 @@ describe('CardService', () => {
     let mongoServer: MongoMemoryServer;
 
     beforeAll(async () => {
-        console.log(process.env.MONGO_TEST_PORT)
         mongoServer = await MongoMemoryServer.create({
             instance: {
                 port: +process.env.MONGO_TEST_PORT,
@@ -38,6 +37,31 @@ describe('CardService', () => {
         expect(result).toEqual(expectedId)
     });
 
+    test("getCards_whenGivenNonExistingIds_shouldGetExistingCardsWithErrorLog", async() => {
+        await cardsCollection.insertMany(mockCards);
+        const badId: string = "bad id"
+        const cardIds: string[] = [...mockCards.map(card => card._id), badId];
+        const expectedCardCount: number = mockCards.length;
+        const expectedErrorMessage = `Could not find card with id: ${badId}`;
+
+        const result: GetCardsResult = await getCards(cardIds);
+
+        expect(result.cards.length).toEqual(expectedCardCount);
+        expect(result.errors[0]).toEqual(expectedErrorMessage)
+    })
+
+    test("getCards_whenGivenValidIdList_shouldGetCards", async() => {
+        await cardsCollection.insertMany(mockCards);
+        const cardIds: string[] = mockCards.map(card => card._id);
+        const expectedCardCount: number = cardIds.length;
+        const expectedErrorCount: number = 0;
+
+        const result = await getCards(cardIds);
+
+        expect(result.cards.length).toEqual(expectedCardCount);
+        expect(result.errors.length).toEqual(expectedErrorCount);
+    })
+
     test("Upsert_whenDbEmpty_shouldInsertAllCards", async () => {
         const expectedCount: number = 4;
 
@@ -52,7 +76,6 @@ describe('CardService', () => {
         const expectedUpsertCount: number = 0;
 
         const result = await upsertCards(mockCards);
-        console.log(result);
 
         expect(result.modifiedCount).toEqual(expectedModifiedCount)
         expect(result.upsertCount).toEqual(expectedUpsertCount)
@@ -64,7 +87,6 @@ describe('CardService', () => {
         const expectedUpsertCount: number = 2;
 
         const result = await upsertCards(mockCards);
-        console.log(result);
 
         expect(result.modifiedCount).toEqual(expectedModifiedCount)
         expect(result.upsertCount).toEqual(expectedUpsertCount)

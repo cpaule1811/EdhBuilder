@@ -3,8 +3,7 @@ import { Card, cardsCollection } from "../models/Card";
 import {
     AnyBulkWriteOperation,
     BulkResult,
-    BulkWriteResult,
-    InsertManyResult,
+    BulkWriteResult, FindCursor,
     InsertOneResult,
     WriteError
 } from "mongodb";
@@ -19,10 +18,19 @@ export const insertCard = async (card: Card): Promise<string> => {
     return "weird";
 }
 
-export const deleteCards = async () =>
-    await cardsCollection.deleteMany({});
+export const getCards = async (cardIds: string[]): Promise<GetCardsResult> => {
+    const result: FindCursor<Card> = await cardsCollection.find<Card>({ _id: { $in: cardIds } });
+    const cards: Card[] = await result.toArray()
+    const nonExistentIds = cardIds.filter(id => !cards.find(card => card._id == id))
+    const errors = nonExistentIds.map(id => `Could not find card with id: ${id}`)
 
-export const upsertCards = async (cards: Card[]): Promise<upsertResult> => {
+    return {
+        cards,
+        errors
+    }
+}
+
+export const upsertCards = async (cards: Card[]): Promise<UpsertResult> => {
     const operations: AnyBulkWriteOperation<Card>[] = cards.map(card => ({
         updateOne: {
             filter: { _id: card._id },
@@ -48,11 +56,16 @@ export const upsertCards = async (cards: Card[]): Promise<upsertResult> => {
     }
 }
 
-interface upsertResult {
+interface UpsertResult {
     isSuccessful: boolean;
     modifiedCount: number;
     matchedCount: number;
     upsertCount: number;
     jsonResponse: BulkResult;
     errors: WriteError[]
+}
+
+export interface GetCardsResult {
+    cards: Card[];
+    errors: string[];
 }
