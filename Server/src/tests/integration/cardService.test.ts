@@ -3,6 +3,8 @@ import { insertCard, upsertCards } from "../../services/cardService";
 import { mockCards } from "../mockData/mockCards";
 import { expect } from "@jest/globals";
 import { mongoClient, cardDb } from "../../mongoClient";
+import { cardsCollection } from "../../models/Card";
+import { mockCard } from "../mockData/mockCard";
 
 describe('CardService', () => {
     let mongoServer: MongoMemoryServer;
@@ -20,7 +22,7 @@ describe('CardService', () => {
     });
 
     afterEach(async () => {
-        await cardDb.dropCollection("cards")
+        await cardsCollection.deleteMany({});
     });
 
     afterAll(async () => {
@@ -36,11 +38,35 @@ describe('CardService', () => {
         expect(result).toEqual(expectedId)
     });
 
-    test("Upsert_whenGivenCards_ShouldUpdateDb", async () => {
+    test("Upsert_whenDbEmpty_shouldInsertAllCards", async () => {
         const expectedCount: number = 4;
 
         const result = await upsertCards(mockCards);
 
-        expect(result).toEqual(expectedCount)
+        expect(result.upsertCount).toEqual(expectedCount)
+    });
+
+    test("Upsert_whenAllCardsExist_shouldChangeNothing", async () => {
+        await cardsCollection.insertMany(mockCards);
+        const expectedModifiedCount: number = 0;
+        const expectedUpsertCount: number = 0;
+
+        const result = await upsertCards(mockCards);
+        console.log(result);
+
+        expect(result.modifiedCount).toEqual(expectedModifiedCount)
+        expect(result.upsertCount).toEqual(expectedUpsertCount)
+    });
+
+    test("Upsert_whenExistingCardDifferent_shouldUpdateCard", async () => {
+        await cardsCollection.insertMany([mockCard, mockCards[2]]);
+        const expectedModifiedCount: number = 1;
+        const expectedUpsertCount: number = 2;
+
+        const result = await upsertCards(mockCards);
+        console.log(result);
+
+        expect(result.modifiedCount).toEqual(expectedModifiedCount)
+        expect(result.upsertCount).toEqual(expectedUpsertCount)
     });
 });

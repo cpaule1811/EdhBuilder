@@ -1,5 +1,4 @@
 import { cardDb } from "../mongoClient";
-import { OptionalId } from "mongodb";
 
 const collectionName = "cards";
 export const cardsCollection = cardDb.collection<Card>(collectionName);
