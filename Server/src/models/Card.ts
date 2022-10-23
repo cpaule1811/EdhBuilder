@@ -1,3 +1,9 @@
+import { cardDb } from "../mongoClient";
+import { OptionalId } from "mongodb";
+
+const collectionName = "cards";
+export const cardsCollection = cardDb.collection<Card>(collectionName);
+
 export interface Card {
     _id: string;
     name: string;
@@ -46,4 +52,3 @@ export interface Card {
         borderColor: string;
     }[]
 }
-

@@ -1,6 +1,6 @@
 import { Card } from "../models/Card";
 import { rawCardDto } from "../dtos/rawCardDto";
-import { findCard } from "./cardService";
+import { ObjectId } from "mongodb";
 
 export const readCardsFromJson = (cardsAsJson: string): rawCardDto[] =>
     JSON.parse(cardsAsJson)

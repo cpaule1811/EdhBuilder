@@ -1,9 +1,9 @@
 import { MongoClient } from "mongodb";
-import { Card } from "./models/Card";
 
-const connectionString : string = process.env.MONGO_CONNECTION_STRING
-console.log(connectionString)
-export const mongoClient = new MongoClient(connectionString);
+const environment : string = process.env.NODE_ENV;
+const connectionString : string = environment == "test"
+    ? `mongodb://${process.env.MONGO_TEST_IP}:${process.env.MONGO_TEST_PORT}`
+    : process.env.MONGO_CONNECTION_STRING
 
-export const cardDb = mongoClient.db(process.env.CARD_DATABASE)
-export const cardsCollection = cardDb.collection<Card>(process.env.CARDS_COLLECTION_NAME)
+export const mongoClient: MongoClient = new MongoClient(connectionString ?? "")
+export const cardDb = mongoClient.db(process.env.DATABASE_NAME)

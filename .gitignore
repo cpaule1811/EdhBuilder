@@ -10,3 +10,6 @@ Server/node_modules
 Server/build
 Server/.env
 Server/Data
+Server/node_modules
+Server/src/coverage
+Server/coverage
