@@ -80,11 +80,10 @@ function CreateForm() {
 
   const createDeck = (e) => {
     e.preventDefault();
-    const fetchUrl = `${import.meta.env.VITE_API_URL}${
-      location.pathname !== "/adddeck"
-        ? `editdeck/${deckDetails.deckID}`
-        : "createdeck"
-    }`;
+    const fetchUrl = `${import.meta.env.VITE_API_URL}${location.pathname !== "/adddeck"
+      ? `editdeck/${deckDetails.deckID}`
+      : "createdeck"
+      }`;
     fetch(fetchUrl, {
       method: "post",
       headers: {
@@ -140,7 +139,7 @@ function CreateForm() {
     return false;
   };
 
-  const SelectFunc = (options, handleChange, defaultVal) => {
+  const buildSelectInput = (options, handleChange, defaultVal) => {
     return (
       <Select
         maxMenuHeight={200}
@@ -182,13 +181,13 @@ function CreateForm() {
                 placeholder="Deck Name"
                 id="deckName"
               />
-              {SelectFunc(commanders, handleChangeMain, selectedOptionMain)}
+              {buildSelectInput(commanders, handleChangeMain, selectedOptionMain)}
               {isPartner
-                ? SelectFunc(
-                    isWithPartner.length ? singlePartner : partners,
-                    handleChangePartner,
-                    selectedOptionPartner
-                  )
+                ? buildSelectInput(
+                  isWithPartner.length ? singlePartner : partners,
+                  handleChangePartner,
+                  selectedOptionPartner
+                )
                 : null}
               <textarea
                 onChange={(e) => setDeckDescription(e.target.value)}

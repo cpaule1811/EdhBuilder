@@ -33,6 +33,7 @@
     "vite": "^3.0.2"
   },
   "scripts": {
+    "dev": "vite",
     "start": "vite serve --host",
     "build": "vite build",
     "preview": "vite preview"
